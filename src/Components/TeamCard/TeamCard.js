@@ -1,11 +1,22 @@
 import React from 'react'
 
-export const TeamCard = (team) => {
+export const TeamCard = ({id, name, venue, teamName, firstYearOfPlay, division, conference, franchise, roster, shortName, officialSiteUrl, franchiseId, active}) => {
   
 
       return (
          <section className="movie_card"> 
-          {team}
+          <h1>{name}</h1>
+          {/* {venue} */}
+          {teamName}
+          {firstYearOfPlay}
+          {/* {division} */}
+          {/* {conference} */}
+          {/* {franchise} */}
+          {/* {roster} */}
+          {shortName}
+          <a>{officialSiteUrl}</a>
+          {franchiseId}
+          {active}
         </section>
       )
 }   

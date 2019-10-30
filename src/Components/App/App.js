@@ -9,11 +9,11 @@ import TeamContainer from '../TeamContainer/TeamContainer'
 export class App extends Component {
   componentDidMount = async () => {
     const { getTeams, hasError, isLoading } = this.props;
-    console.log(this.props)
     try {
       const teams = await fetchTeams();
       console.log('teams in app--->', teams)
       getTeams(teams);
+      console.log(this.props)
     } catch (error) {
       console.log('error')
     }
