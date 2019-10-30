@@ -1,19 +1,21 @@
-import { getTeams, isLoading } from '../../actions';
-import { fetchTeams } from '../../apiCalls'
+import { getTeams, isLoading, hasError } from '../../actions';
+import { bindActionCreators } from 'redux';
+import { fetchTeams } from '../../apiCalls';
+import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import './App.css';
 import TeamContainer from '../TeamContainer/TeamContainer'
 
 export class App extends Component {
-  async componentDidMount() {
-    const { getMovies, hasError, isLoading } = this.props;
+  componentDidMount = async () => {
+    const { getTeams, hasError, isLoading } = this.props;
+    console.log(this.props)
     try {
-      isLoading(true);
-      const movies = await fetchTeams();
-      isLoading(false)
-      getMovies(movies);
+      const teams = await fetchTeams();
+      console.log('teams in app--->', teams)
+      getTeams(teams);
     } catch (error) {
-      hasError(error.message)
+      console.log('error')
     }
   }
 
@@ -27,4 +29,17 @@ export class App extends Component {
 
 }
 
-export default App;
+export const mapStateToProps = (state) => ({
+  teams: state.teams,
+  errorMsg: state.errorMsg,
+});
+
+export const mapDispatchToProps = (dispatch) => (
+  bindActionCreators({
+    getTeams,
+    hasError,
+    isLoading
+  }, dispatch)
+)
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)
