@@ -7,7 +7,8 @@ import './App.css';
 import TeamContainer from '../TeamContainer/TeamContainer';
 import { Route } from 'react-router-dom';
 import WelcomePage from '../WelcomePage/WelcomePage'
-import TeamRoster from '../TeamRoster/TeamRoster'
+import TeamRoster from '../TeamRoster/TeamRoster';
+import StandingsContainer from 
 
 export class App extends Component {
   componentDidMount = async () => {
@@ -28,6 +29,7 @@ export class App extends Component {
         <Route exact path='/' render={() => <WelcomePage /> } />
         <Route exact path='/teams' render={() => <TeamContainer />} />
         <Route exact path='/roster' render={() => <TeamRoster />} />
+        <Route exact path='./standings' render={() => <StandingsContainer /> } />
       </section>
     )
   }
