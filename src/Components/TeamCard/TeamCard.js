@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import TeamRoster from '../TeamRoster/TeamRoster'
+import TeamRoster from '../RosterCard/RosterCard'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getRoster } from '../../actions';
@@ -23,9 +23,10 @@ export const TeamCard = ({id, name, venue, teamName, firstYearOfPlay, division, 
           {franchiseId}
           {active}
           
-          {/* <Link to='/roster'> */}
             <button onClick={(e) => getSingleRoster(e, id)}>Team Roster</button>>
-          {/* </Link> */}
+          <Link to='/roster'>
+            <h1>rosterrrr</h1>
+          </Link>
 
           
         </section>

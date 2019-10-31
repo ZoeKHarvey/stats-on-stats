@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import TeamCard from '../TeamCard/TeamCard'
 import { connect } from 'react-redux';
-import TeamRoster from '../TeamRoster/TeamRoster'
+import TeamRoster from '../RosterCard/RosterCard'
 
 
 

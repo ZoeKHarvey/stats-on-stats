@@ -7,7 +7,7 @@ import './App.css';
 import TeamContainer from '../TeamContainer/TeamContainer';
 import { Route } from 'react-router-dom';
 import WelcomePage from '../WelcomePage/WelcomePage'
-import TeamRoster from '../TeamRoster/TeamRoster';
+import RosterContainer from '../RosterContainer/RosterContainer';
 import StandingsContainer from  '../StandingsContainer/StandingsContainer'
 
 export class App extends Component {
@@ -24,13 +24,12 @@ export class App extends Component {
 
   getSingleRoster = async(e, id) =>{
     e.preventDefault()
-    // const newID =  e.target.id 
     console.log('CHOSEN TEAM', id)
     const { getRoster } = this.props;
     try {
-      const rosters = await fetchRoster(id);
-      console.log('rosters in app--->', rosters)
-      getRoster(rosters)
+      const roster = await fetchRoster(id);
+      console.log('rosters in app--->', roster)
+      getRoster(roster.roster)
     } catch(error) {
       console.log('error')
     }
@@ -41,7 +40,7 @@ export class App extends Component {
       <section className="section-app">
         <Route exact path='/' render={() => <WelcomePage /> } />
         <Route exact path='/teams' render={() => <TeamContainer getSingleRoster={this.getSingleRoster}  />} />
-        <Route exact path='/roster' render={() => <TeamRoster />} />
+        <Route exact path='/roster' render={() => <RosterContainer />} />
         <Route exact path='/standings' render={() => <StandingsContainer /> } />
       </section>
     )

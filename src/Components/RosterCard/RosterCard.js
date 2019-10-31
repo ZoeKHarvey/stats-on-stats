@@ -5,17 +5,14 @@ import { connect } from 'react-redux'
 
  export const TeamRoster = ({ jerseyNumber, person, position }) => {
    console.log('JERSEY NUMBER', jerseyNumber)
-  //  const foundTeam = teams.find(team => team.id === id)
-//    const roster = foundTeam.roster.map((team) => {
-//      console.log(foundTeam, roster)
-//     return team.roster
-// })
-  //  console.log('ROSTER', roster)
+  
+
 	return (
-		<section className='movie_page' >
-    {/* {/* {jerseyNumber}
+		<section className='roster-card' >
+      <h1>In Me</h1>
+    {jerseyNumber}
     {person.fullName}
-    {position.type} */}
+    {position.type}}
 		</section>
 
 	)

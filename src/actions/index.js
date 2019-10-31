@@ -8,9 +8,9 @@ export const getStandings = (standings) => ({
   standings
 })
 
-export const getRoster = (id) => ({
+export const getRoster = (roster) => ({
   type: 'GET_ROSTER',
-  id
+  roster
 })
 
 export const isLoading = (isLoading) => ({

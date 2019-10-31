@@ -3,7 +3,7 @@ import TeamCard from '../TeamCard/TeamCard';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { fetchStandings } from '../../apiCalls';
-import StandingsCard from '../TeamRoster/TeamRoster';
+import StandingsCard from '../RosterCard/RosterCard';
 import { getStandings, isLoading, hasError } from '../../actions';
 
 class StandingsContainer extends Component {
