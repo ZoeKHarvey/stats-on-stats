@@ -3,9 +3,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux'
 
- export const TeamRoster = ({ jerseyNumber, person, position }) => {
+ export const TeamRoster = ({  jerseyNumber, person, position, getSinglePlayer }) => {
    console.log('JERSEY NUMBER', jerseyNumber)
-  
 
 	return (
 		<section className='roster-card' >
@@ -13,6 +12,7 @@ import { connect } from 'react-redux'
     {jerseyNumber}
     {person.fullName}
     {position.type}
+    <button onClick={(e) => getSinglePlayer(e, person.id)}>ShowPlayer</button>
 		</section>
 
 	)

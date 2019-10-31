@@ -13,8 +13,6 @@ export const TeamContainer = ({teams, roster, getSingleRoster}) => {
                          />
 })
 
-
-
     return(
       <section className="section-teamcontainer">
         {singleTeams}

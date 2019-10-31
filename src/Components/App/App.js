@@ -34,6 +34,7 @@ export class App extends Component {
   }
 
   getSinglePlayer = async(e, id) => {
+    console.log('PLAYER ID-->', id)
     e.preventDefault();
     const { getPlayer } = this.props;
     try {
@@ -49,7 +50,7 @@ export class App extends Component {
       <section className="section-app">
         <Route exact path='/' render={() => <WelcomePage /> } />
         <Route exact path='/teams' render={() => <TeamContainer getSingleRoster={this.getSingleRoster}  />} />
-        <Route exact path='/roster' render={() => <RosterContainer />} />
+        <Route exact path='/roster' render={() => <RosterContainer getSinglePlayer={this.getSinglePlayer} />} />
         <Route exact path='/standings' render={() => <StandingsContainer /> } />
       </section>
     )
@@ -67,7 +68,8 @@ export const mapDispatchToProps = (dispatch) => (
     getTeams,
     hasError,
     isLoading,
-    getRoster
+    getRoster,
+    getPlayer
   }, dispatch)
 )
 

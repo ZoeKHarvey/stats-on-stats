@@ -3,10 +3,12 @@ import TeamCard from '../TeamCard/TeamCard'
 import { connect } from 'react-redux';
 import RosterCard from '../RosterCard/RosterCard'
 
-export const RosterContainer = ({roster}) => {
+export const RosterContainer = ({roster, getSinglePlayer}) => {
   console.log('roster in container-->', roster)
   const singleRoster = roster.map((roster) => {
-    return <RosterCard {...roster} />
+    return <RosterCard {...roster}
+                        getSinglePlayer = { getSinglePlayer } 
+                        />
 })
 
     return(

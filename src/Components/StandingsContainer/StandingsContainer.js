@@ -7,6 +7,9 @@ import StandingsCard from '../RosterCard/RosterCard';
 import { getStandings, isLoading, hasError } from '../../actions';
 
 class StandingsContainer extends Component {
+
+
+
   componentDidMount = async () => {
     console.log('in component did map', this.props)
     const { getStandings, hasError, isLoading } = this.props;
