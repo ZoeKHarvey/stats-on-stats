@@ -12,7 +12,7 @@ import { connect } from 'react-redux'
       <h1>In Me</h1>
     {jerseyNumber}
     {person.fullName}
-    {position.type}}
+    {position.type}
 		</section>
 
 	)

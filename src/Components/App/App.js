@@ -24,16 +24,16 @@ export class App extends Component {
 
   getSingleRoster = async(e, id) =>{
     e.preventDefault()
-    console.log('CHOSEN TEAM', id)
     const { getRoster } = this.props;
     try {
       const roster = await fetchRoster(id);
-      console.log('rosters in app--->', roster)
       getRoster(roster)
     } catch(error) {
       console.log('error')
     }
   }
+
+  
 
   render() {
     return(
