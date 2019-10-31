@@ -60,8 +60,6 @@ export class App extends Component {
       shootsCatches: player.shootsCatches,
       
     }
-    // console.log('cleaned up player-->', cleanedPlayer)
-    // getPlayer(cleanedPlayer)
   }
 
   render() {
