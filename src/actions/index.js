@@ -8,6 +8,11 @@ export const getStandings = (standings) => ({
   standings
 })
 
+export const getRoster = (roster) => ({
+  type: 'GET_ROSTER',
+  roster
+})
+
 export const isLoading = (isLoading) => ({
   type: 'IS_LOADING',
   isLoading
@@ -17,3 +22,4 @@ export const hasError = (errorMsg) => ({
   type: 'HAS_ERROR',
   errorMsg
 })
+
