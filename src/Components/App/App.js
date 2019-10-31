@@ -29,7 +29,7 @@ export class App extends Component {
     try {
       const roster = await fetchRoster(id);
       console.log('rosters in app--->', roster)
-      getRoster(roster.roster)
+      getRoster(roster)
     } catch(error) {
       console.log('error')
     }
