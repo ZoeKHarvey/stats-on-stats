@@ -14,7 +14,7 @@ export const TeamCard = ({id, name, venue, teamName, firstYearOfPlay, division, 
           {/* {franchise} */}
           {/* {roster} */}
           {shortName}
-          <a>{officialSiteUrl}</a>
+          <a href={officialSiteUrl}>Official Site</a>
           {franchiseId}
           {active}
         </section>
