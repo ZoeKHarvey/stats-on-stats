@@ -33,7 +33,16 @@ export class App extends Component {
     }
   }
 
-  
+  getSinglePlayer = async(e, id) => {
+    e.preventDefault();
+    const { getPlayer } = this.props;
+    try {
+      const player = await fetchSinglePlayer(id);
+      getPlayer(player)
+    } catch(error) {
+      console.log('error')
+    }
+  }
 
   render() {
     return(
