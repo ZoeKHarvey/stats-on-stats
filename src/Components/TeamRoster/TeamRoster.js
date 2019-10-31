@@ -13,9 +13,9 @@ import { connect } from 'react-redux'
   //  console.log('ROSTER', roster)
 	return (
 		<section className='movie_page' >
-    {jerseyNumber}
+    {/* {jerseyNumber}
     {person.fullName}
-    {position.type}
+    {position.type} */}
 		</section>
 
 	)
