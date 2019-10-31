@@ -9,5 +9,4 @@ export const rootReducer = combineReducers({
     isLoading,
     errorMsg,
     standings
-    
 })
