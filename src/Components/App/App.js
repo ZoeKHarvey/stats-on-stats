@@ -1,6 +1,6 @@
-import { getTeams, isLoading, hasError } from '../../actions';
+import { getTeams, isLoading, hasError, getRoster } from '../../actions';
 import { bindActionCreators } from 'redux';
-import { fetchTeams } from '../../apiCalls';
+import { fetchTeams, fetchRoster } from '../../apiCalls';
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import './App.css';
@@ -17,8 +17,21 @@ export class App extends Component {
       const teams = await fetchTeams();
       console.log('teams in app--->', teams)
       getTeams(teams);
-      console.log(this.props)
     } catch (error) {
+      console.log('error')
+    }
+  }
+
+  getSingleRoster = async(e, id) =>{
+    e.preventDefault()
+    // const newID =  e.target.id 
+    console.log('CHOSEN TEAM', id)
+    const { getRoster } = this.props;
+    try {
+      const rosters = await fetchRoster(id);
+      console.log('rosters in app--->', rosters)
+      getRoster(rosters)
+    } catch(error) {
       console.log('error')
     }
   }
@@ -27,7 +40,7 @@ export class App extends Component {
     return(
       <section className="section-app">
         <Route exact path='/' render={() => <WelcomePage /> } />
-        <Route exact path='/teams' render={() => <TeamContainer />} />
+        <Route exact path='/teams' render={() => <TeamContainer getSingleRoster={this.getSingleRoster}  />} />
         <Route exact path='/roster' render={() => <TeamRoster />} />
         <Route exact path='/standings' render={() => <StandingsContainer /> } />
       </section>
@@ -45,7 +58,8 @@ export const mapDispatchToProps = (dispatch) => (
   bindActionCreators({
     getTeams,
     hasError,
-    isLoading
+    isLoading,
+    getRoster
   }, dispatch)
 )
 

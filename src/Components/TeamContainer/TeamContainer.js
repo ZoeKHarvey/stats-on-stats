@@ -5,10 +5,11 @@ import TeamRoster from '../TeamRoster/TeamRoster'
 
 
 
-export const TeamContainer = ({teams, roster}) => {
+export const TeamContainer = ({teams, roster, getSingleRoster}) => {
   const singleTeams = teams.map((team) => {
     return <TeamCard key={team.id}
                         {...team}
+                        getSingleRoster={getSingleRoster} 
                          />
 })
 

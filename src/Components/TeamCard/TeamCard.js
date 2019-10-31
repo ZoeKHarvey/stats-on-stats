@@ -5,17 +5,11 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getRoster } from '../../actions';
 
-export const TeamCard = ({id, name, venue, teamName, firstYearOfPlay, division, conference, franchise, roster, shortName, officialSiteUrl, franchiseId, active}) => {
-  console.log('roster!--->', roster.roster)
-
-  const singleRosters = roster.roster.map((rost) => {
-    // return rost.roster.map((r) => {
-      return <TeamRoster {...rost}
-      />
-    // })
-  })
+export const TeamCard = ({id, name, venue, teamName, firstYearOfPlay, division, conference, franchise, roster, shortName, officialSiteUrl, franchiseId, active, getSingleRoster}) => {
+  console.log('get single roster function', getSingleRoster)
 
       return (
+        
          <section className="movie_card"> 
           <h1>{name}</h1>
           {/* {venue} */}
@@ -30,8 +24,7 @@ export const TeamCard = ({id, name, venue, teamName, firstYearOfPlay, division, 
           {active}
           
           {/* <Link to='/roster'> */}
-            <h1 onClick={getRoster}>Team Roster</h1>
-            {singleRosters}
+            <button onClick={(e) => getSingleRoster(e, id)}>Team Roster</button>>
           {/* </Link> */}
 
           

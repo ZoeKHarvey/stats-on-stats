@@ -11,10 +11,10 @@ export const fetchStandings = async() => {
   return data.records
 }
 
-export const fetchSingleTeam = async(id) => {
+export const fetchRoster = async(id) => {
   const response = await fetch(`https://statsapi.web.nhl.com/api/v1/teams/${id}?expand=team.roster`)
   const data = await response.json();
   console.log(data)
-  return data
+  return data.teams[0].roster.roster
 }
 
