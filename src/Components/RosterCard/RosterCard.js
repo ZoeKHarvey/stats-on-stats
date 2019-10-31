@@ -8,7 +8,7 @@ import { connect } from 'react-redux'
 
 	return (
 		<section className='roster-card' >
-      <h1>In Me</h1>
+      <button>Show Details</button>
     {jerseyNumber}
     {person.fullName}
     {position.type}

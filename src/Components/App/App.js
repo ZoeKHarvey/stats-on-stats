@@ -34,15 +34,34 @@ export class App extends Component {
   }
 
   getSinglePlayer = async(e, id) => {
-    console.log('PLAYER ID-->', id)
     e.preventDefault();
     const { getPlayer } = this.props;
     try {
       const player = await fetchPlayer(id);
-      getPlayer(player)
+      getPlayer(this.cleanUpPlayer(player))
     } catch(error) {
       console.log('error')
     }
+  }
+
+  cleanUpPlayer = (player) => {
+    return {
+      id: player.id,
+      fullName: player.fullName,
+      active: player.active,
+      captain: player.captain,
+      height: player.height,
+      weight: player.weight,
+      birthCity: player.birthCity,
+      birthStateProvince: player.birthStateProvince,
+      birthCountry: player.birthCountry,
+      currentAge: player.currentAge,
+      rosterStatus: player.rosterStatus,
+      shootsCatches: player.shootsCatches,
+      
+    }
+    // console.log('cleaned up player-->', cleanedPlayer)
+    // getPlayer(cleanedPlayer)
   }
 
   render() {
