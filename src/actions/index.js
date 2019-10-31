@@ -13,6 +13,11 @@ export const getRoster = (roster) => ({
   roster
 })
 
+export const getPlayer = (player) => ({
+  type: 'GET_PLAYER',
+  player
+})
+
 export const isLoading = (isLoading) => ({
   type: 'IS_LOADING',
   isLoading

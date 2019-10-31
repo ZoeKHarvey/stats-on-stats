@@ -1,6 +1,6 @@
-import { getTeams, isLoading, hasError, getRoster } from '../../actions';
+import { getTeams, isLoading, hasError, getRoster, getPlayer } from '../../actions';
 import { bindActionCreators } from 'redux';
-import { fetchTeams, fetchRoster } from '../../apiCalls';
+import { fetchTeams, fetchRoster, fetchPlayer } from '../../apiCalls';
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import './App.css';
@@ -37,7 +37,7 @@ export class App extends Component {
     e.preventDefault();
     const { getPlayer } = this.props;
     try {
-      const player = await fetchSinglePlayer(id);
+      const player = await fetchPlayer(id);
       getPlayer(player)
     } catch(error) {
       console.log('error')

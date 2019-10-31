@@ -17,7 +17,7 @@ export const fetchRoster = async(id) => {
   return data.teams[0].roster.roster
 }
 
-export const fetchSinglePlayer = async(id) => {
+export const fetchPlayer = async(id) => {
   const response = await fetch(`https://statsapi.web.nhl.com/api/v1/people/${id} `)
   const data = await response.json();
   console.log(data)
