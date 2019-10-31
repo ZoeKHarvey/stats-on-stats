@@ -10,7 +10,7 @@ const  WelcomePage = () => {
 
     return(
       <section className="section-welcome">
-        <Link to='/teams'>
+        <Link to='/teams'> 
           <h3>Teams</h3>
         </Link>
       </section>

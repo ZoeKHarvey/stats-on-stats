@@ -4,8 +4,15 @@ import TeamRoster from '../TeamRoster/TeamRoster'
 import { connect } from 'react-redux'
 
 export const TeamCard = ({id, name, venue, teamName, firstYearOfPlay, division, conference, franchise, roster, shortName, officialSiteUrl, franchiseId, active}) => {
-  console.log('id--->', id)
-  
+  console.log('roster!--->', roster.roster)
+
+  const singleRosters = roster.roster.map((rost) => {
+    // return rost.roster.map((r) => {
+      return <TeamRoster {...rost}
+      />
+    // })
+  })
+
       return (
          <section className="movie_card"> 
           <h1>{name}</h1>
@@ -15,13 +22,14 @@ export const TeamCard = ({id, name, venue, teamName, firstYearOfPlay, division, 
           {/* {division} */}
           {/* {conference} */}
           {/* {franchise} */}
-          {/* {roster} */}
           {shortName}
           <a href={officialSiteUrl}>Official Site</a>
           {franchiseId}
           {active}
+          
           <Link to='/roster'>
             <h1>Team Roster</h1>
+            {singleRosters}
           </Link>
 
           
@@ -30,7 +38,7 @@ export const TeamCard = ({id, name, venue, teamName, firstYearOfPlay, division, 
 }   
 
 export const mapStateToProps = (state) => ({
-  teams:state.teams,
+  teams: state.teams,
   errorMsg: state.errorMsg
 })
 
