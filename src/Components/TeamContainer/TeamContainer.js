@@ -4,14 +4,14 @@ import { connect } from 'react-redux';
 
 
 export const TeamContainer = ({teams}) => {
-  const loopTeams = teams.map((team) => {
+  const singleTeams = teams.map((team) => {
     return <TeamCard key={team.id}
                         {...team} />
 })
 
     return(
       <section className="section-teamcontainer">
-        {loopTeams}
+        {singleTeams}
       </section>
     )
 
