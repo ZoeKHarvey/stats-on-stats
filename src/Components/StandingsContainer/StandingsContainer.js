@@ -12,16 +12,26 @@ class StandingsContainer extends Component {
     const { getStandings, hasError, isLoading } = this.props;
     try {
       const standings = await fetchStandings();
-      console.log('standings in app--->', standings)
       getStandings(standings);
-      console.log(this.props)
     } catch (error) {
       console.log('error')
     }
   }
 
+  // const structureRoster = () => {
+   
+  // }
+
 
     render() {
+      const {standings} = this.props
+      const mappedStandings = standings.map(stand => stand.teamRecords)
+      console.log('mapped in render--->', mappedStandings)
+      const anothermap = mappedStandings.forEach((stand) => {
+        console.log(stand)
+        return stand.map(st => st.row)
+      })
+      console.log(anothermap)
     return(
       <section className="section-teamcontainer">
         

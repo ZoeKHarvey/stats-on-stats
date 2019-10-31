@@ -6,10 +6,15 @@ export const fetchTeams = async() => {
 }
 
 export const fetchStandings = async() => {
-  console.log('in standings fetch')
-  const response = await fetch ('https://statsapi.web.nhl.com/api/v1/standings');
+  const response = await fetch ('https://statsapi.web.nhl.com/api/v1/standings?expand=standings.record');
   const data = await response.json();
-  console.log('standings in fetch', data.records)
   return data.records
+}
+
+export const fetchSingleTeam = async(id) => {
+  const response = await fetch(`https://statsapi.web.nhl.com/api/v1/teams/${id}?expand=team.roster`)
+  const data = await response.json();
+  console.log(data)
+  return data
 }
 

@@ -1,7 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import TeamRoster from '../TeamRoster/TeamRoster'
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { getRoster } from '../../actions';
 
 export const TeamCard = ({id, name, venue, teamName, firstYearOfPlay, division, conference, franchise, roster, shortName, officialSiteUrl, franchiseId, active}) => {
   console.log('roster!--->', roster.roster)
@@ -27,10 +29,10 @@ export const TeamCard = ({id, name, venue, teamName, firstYearOfPlay, division, 
           {franchiseId}
           {active}
           
-          <Link to='/roster'>
-            <h1>Team Roster</h1>
+          {/* <Link to='/roster'> */}
+            <h1 onClick={getRoster}>Team Roster</h1>
             {singleRosters}
-          </Link>
+          {/* </Link> */}
 
           
         </section>
@@ -42,4 +44,12 @@ export const mapStateToProps = (state) => ({
   errorMsg: state.errorMsg
 })
 
+export const mapDispatchToProps = (dispatch) => (
+  bindActionCreators({
+    // getTeams,
+    // hasError,
+    // isLoading,
+    getRoster
+  }, dispatch)
+)
 export default connect(mapStateToProps)(TeamCard);
