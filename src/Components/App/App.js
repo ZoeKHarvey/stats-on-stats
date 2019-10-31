@@ -4,7 +4,9 @@ import { fetchTeams } from '../../apiCalls';
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import './App.css';
-import TeamContainer from '../TeamContainer/TeamContainer'
+import TeamContainer from '../TeamContainer/TeamContainer';
+import { Route } from 'react-router-dom';
+import WelcomePage from '../WelcomePage/WelcomePage'
 
 export class App extends Component {
   componentDidMount = async () => {
@@ -22,7 +24,8 @@ export class App extends Component {
   render() {
     return(
       <section className="section-app">
-        <TeamContainer />
+        <Route exact path='/' render={() => <WelcomePage /> } />
+        <Route exact path='/teams' render={() => <TeamContainer />} />
       </section>
     )
   }
