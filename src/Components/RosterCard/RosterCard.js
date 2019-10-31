@@ -8,7 +8,9 @@ import { connect } from 'react-redux'
 
 	return (
 		<section className='roster-card' >
+      <Link to='/player'>
       <button>Show Details</button>
+      </Link>
     {jerseyNumber}
     {person.fullName}
     {position.type}

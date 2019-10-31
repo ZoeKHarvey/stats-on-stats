@@ -8,7 +8,8 @@ import TeamContainer from '../TeamContainer/TeamContainer';
 import { Route } from 'react-router-dom';
 import WelcomePage from '../WelcomePage/WelcomePage'
 import RosterContainer from '../RosterContainer/RosterContainer';
-import StandingsContainer from  '../StandingsContainer/StandingsContainer'
+import StandingsContainer from  '../StandingsContainer/StandingsContainer';
+import Player from '../Player/Player'
 
 export class App extends Component {
   componentDidMount = async () => {
@@ -69,6 +70,7 @@ export class App extends Component {
         <Route exact path='/teams' render={() => <TeamContainer getSingleRoster={this.getSingleRoster}  />} />
         <Route exact path='/roster' render={() => <RosterContainer getSinglePlayer={this.getSinglePlayer} />} />
         <Route exact path='/standings' render={() => <StandingsContainer /> } />
+        <Route exact path='/player' render={() => <Player />} />
       </section>
     )
   }
