@@ -3,6 +3,11 @@ export const getTeams = (teams) => ({
   teams
 })
 
+export const getStandings = (standings) => ({
+  type: 'GET_STANDINGS',
+  standings
+})
+
 export const isLoading = (isLoading) => ({
   type: 'IS_LOADING',
   isLoading
