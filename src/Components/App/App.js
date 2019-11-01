@@ -83,7 +83,7 @@ export class App extends Component {
         <Route exact path='/' render={() => 
           <>
           <WelcomePage />
-          <NavLogos /> 
+          <NavLogos getSingleRoster={this.getSingleRoster} /> 
           </>
         }
           />

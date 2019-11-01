@@ -1,0 +1,12 @@
+.nav__div {
+  display: flex;
+  border: 1px solid pink;
+  position: relative;
+  z-index: 15;
+}
+
+.nav__img--logo {
+  max-width: 2.2%;
+  margin:.5%;
+  border: 2px solid green;
+}
