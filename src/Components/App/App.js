@@ -45,6 +45,17 @@ export class App extends Component {
     }
   }
 
+  getSinglePlayerStats = async(e, id) => {
+    e.preventDefault();
+    const { getPlayerStats } = this.props;
+    try {
+      const player = await fetchPlayerStats(id);
+      getPlayerStats(this.cleanUpPlayerStats(player))
+    } catch(error) {
+      console.log('error')
+    }
+  }
+
   cleanUpPlayer = (player) => {
     return {
       id: player.id,
