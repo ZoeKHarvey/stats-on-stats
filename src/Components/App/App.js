@@ -7,6 +7,7 @@ import './App.css';
 import TeamContainer from '../TeamContainer/TeamContainer';
 import { Route } from 'react-router-dom';
 import WelcomePage from '../WelcomePage/WelcomePage'
+import NavLogos from '../NavLogos/NavLogos'
 import RosterContainer from '../RosterContainer/RosterContainer';
 import StandingsContainer from  '../StandingsContainer/StandingsContainer';
 import Player from '../Player/Player'
@@ -79,7 +80,14 @@ export class App extends Component {
   render() {
     return(
       <section className="section-app">
-        <Route exact path='/' render={() => <WelcomePage /> } />
+        <Route exact path='/' render={() => 
+          <>
+          <WelcomePage />
+          <NavLogos /> 
+          </>
+        }
+          />
+          
         <Route exact path='/teams' render={() => <TeamContainer getSingleRoster={this.getSingleRoster}  />} />
         <Route exact path='/roster' render={() => <RosterContainer getSinglePlayer={this.getSinglePlayer} />} />
         <Route exact path='/standings' render={() => <StandingsContainer /> } />
