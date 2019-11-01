@@ -35,7 +35,8 @@ import { fetchPlayerStats } from '../../apiCalls';
   }
  
   render() {
-    const {playerInfo} = this.props
+    const {playerInfo, playerStats} = this.props
+    console.log('player stats in render', playerStats)
 	return (
 		<section className='player'>
       {playerInfo.fullName}
@@ -49,7 +50,16 @@ import { fetchPlayerStats } from '../../apiCalls';
       {playerInfo.weight}
       {playerInfo.rosterStatus}
       {playerInfo.shootsCatches}
-
+      {playerStats.assists}
+      {playerStats.games}
+      {playerStats.goals}
+      {playerStats.hits}
+      {playerStats.pim}
+      {playerStats.plusMinus}
+      {playerStats.points}
+      {playerStats.powerPlayPoints}
+      {playerStats.shotPct}
+      {playerStats.shots}
 		</section>
 
 	)}
@@ -57,6 +67,7 @@ import { fetchPlayerStats } from '../../apiCalls';
 
 export const mapStateToProps = (state) => ({
   teams:state.teams,
+  playerStats: state.playerStats,
   playerInfo:state.playerInfo
 })
 
