@@ -8,36 +8,25 @@ import { getStandings, isLoading, hasError } from '../../actions';
 
 class StandingsContainer extends Component {
 
-
-
   componentDidMount = async () => {
-    console.log('in component did map', this.props)
-    const { getStandings, hasError, isLoading } = this.props;
+    const { getStandings } = this.props;
     try {
       const standings = await fetchStandings();
       getStandings(standings);
-    } catch (error) {
-      console.log('error')
+    } catch(error) {
+      
     }
+      
+    
   }
 
-  // const structureRoster = () => {
-   
-  // }
+ 
 
 
     render() {
-      const {standings} = this.props
-      const mappedStandings = standings.map(stand => stand.teamRecords)
-      console.log('mapped in render--->', mappedStandings)
-      const anothermap = mappedStandings.forEach((stand) => {
-        console.log(stand)
-        return stand.map(st => st.row)
-      })
-      console.log(anothermap)
     return(
       <section className="section-teamcontainer">
-        
+        <p>hi</p>
     
       </section>
     )}

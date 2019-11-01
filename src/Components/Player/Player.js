@@ -13,7 +13,6 @@ import { fetchPlayerStats } from '../../apiCalls';
     try {
       const stat = await fetchPlayerStats(playerInfo.id);
       getPlayerStats(this.organizeStats(stat))
-      console.log('stats==>', stat)
     } catch (error) {
       console.log('error')
     }
@@ -36,7 +35,6 @@ import { fetchPlayerStats } from '../../apiCalls';
  
   render() {
     const {playerInfo, playerStats} = this.props
-    console.log('player stats in render', playerStats)
 	return (
 		<section className='player'>
       {playerInfo.fullName}
