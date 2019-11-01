@@ -18,6 +18,11 @@ export const getPlayer = (player) => ({
   player
 })
 
+export const getPlayerStats = (player) => ({
+  type: 'GET_PLAYER_STATS',
+  player
+})
+
 export const isLoading = (isLoading) => ({
   type: 'IS_LOADING',
   isLoading
@@ -27,4 +32,6 @@ export const hasError = (errorMsg) => ({
   type: 'HAS_ERROR',
   errorMsg
 })
+
+
 
