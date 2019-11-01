@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux'
 
  export const TeamRoster = ({  jerseyNumber, person, position, getSinglePlayer }) => {
-   console.log('JERSEY NUMBER', jerseyNumber)
 
 	return (
 		<section className='roster-card' >

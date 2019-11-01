@@ -4,7 +4,8 @@ import { errorMsg } from './hasError';
 import { isLoading } from './isLoading';
 import { standings } from './standings';
 import { roster } from './roster';
-import { player } from './player';
+import { playerInfo } from './playerInfo';
+import {playerStats} from './playerStats';
 
 export const rootReducer = combineReducers({
     teams,
@@ -12,5 +13,6 @@ export const rootReducer = combineReducers({
     errorMsg,
     standings,
     roster,
-    player
+    playerInfo,
+    playerStats
 })

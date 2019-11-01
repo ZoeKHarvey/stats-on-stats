@@ -1,6 +1,6 @@
 import { getTeams, isLoading, hasError, getRoster, getPlayer } from '../../actions';
 import { bindActionCreators } from 'redux';
-import { fetchTeams, fetchRoster, fetchPlayer } from '../../apiCalls';
+import { fetchTeams, fetchRoster, fetchPlayer, fetchPlayerStats } from '../../apiCalls';
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import './App.css';
@@ -36,6 +36,7 @@ export class App extends Component {
 
   getSinglePlayer = async(e, id) => {
     e.preventDefault();
+    this.getSinglePlayerStats(e, id)
     const { getPlayer } = this.props;
     try {
       const player = await fetchPlayer(id);
@@ -55,6 +56,7 @@ export class App extends Component {
       console.log('error')
     }
   }
+  /// Leaving off on single player stats being fetched
 
   cleanUpPlayer = (player) => {
     return {

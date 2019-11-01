@@ -1,27 +1,54 @@
-
+import { getPlayerStats } from '../../actions';
 import React, {Component} from 'react';
+import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux'
-import { player } from '../../reducers/player';
+import { player } from '../../reducers/playerInfo';
+import { fetchPlayerStats } from '../../apiCalls';
 
- export class TeamRoster extends Component {
+ export class Player extends Component {
 
+  componentDidMount = async () => {
+    const { playerInfo, getPlayerStats } = this.props;
+    try {
+      const stat = await fetchPlayerStats(playerInfo.id);
+      getPlayerStats(this.organizeStats(stat))
+      console.log('stats==>', stat)
+    } catch (error) {
+      console.log('error')
+    }
+  }
+
+  organizeStats = (playerInfo) => {
+    return {
+      assists: playerInfo.assists,
+      games: playerInfo.games,
+      goals: playerInfo.goals,
+      hits: playerInfo.hits,
+      pim: playerInfo.pim,
+      plusMinus: playerInfo.plusMinus,
+      points: playerInfo.points,
+      powerPlayPoints: playerInfo.powerPlayPoints,
+      shotPct: playerInfo.shotPct,
+      shots: playerInfo.shots,
+    }
+  }
  
   render() {
-    const {player} = this.props
+    const {playerInfo} = this.props
 	return (
 		<section className='player'>
-      {player.fullName}
-      {player.active}
-      {player.birthCity}
-      {player.birthCountry}
-      {player.birthStateProvince}
-      {player.captain}
-      {player.currentAge}
-      {player.height}
-      {player.weight}
-      {player.rosterStatus}
-      {player.shootsCatches}
+      {playerInfo.fullName}
+      {playerInfo.active}
+      {playerInfo.birthCity}
+      {playerInfo.birthCountry}
+      {playerInfo.birthStateProvince}
+      {playerInfo.captain}
+      {playerInfo.currentAge}
+      {playerInfo.height}
+      {playerInfo.weight}
+      {playerInfo.rosterStatus}
+      {playerInfo.shootsCatches}
 
 		</section>
 
@@ -30,7 +57,13 @@ import { player } from '../../reducers/player';
 
 export const mapStateToProps = (state) => ({
   teams:state.teams,
-  player:state.player
+  playerInfo:state.playerInfo
 })
 
-export default connect(mapStateToProps)(TeamRoster);
+export const mapDispatchToProps = (dispatch) => (
+  bindActionCreators({
+    getPlayerStats
+  }, dispatch)
+)
+
+export default connect(mapStateToProps, mapDispatchToProps)(Player);

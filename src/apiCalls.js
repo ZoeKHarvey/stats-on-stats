@@ -19,11 +19,15 @@ export const fetchRoster = async(id) => {
 
 export const fetchPlayer = async(id) => {
   const response = await fetch(`https://statsapi.web.nhl.com/api/v1/people/${id} `)
-  console.log('-------->', response)
   const data = await response.json();
-  console.log('=======>>>>', data.people[0])
   return data.people[0]
 }
 
-
+export const fetchPlayerStats = async(id, year = 20192020) => {
+  console.log('in the fetchy')
+  const response = await fetch(`https://statsapi.web.nhl.com/api/v1/people/${id}/stats?stats=statsSingleSeason&season=${year}`)
+  const data = await response.json();
+  console.log('data===>', data.stats[0].splits[0].stat)
+  return data.stats[0].splits[0].stat
+}
 
