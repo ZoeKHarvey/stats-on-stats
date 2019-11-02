@@ -7,7 +7,7 @@ import React, { Component } from 'react';
 import TeamContainer from '../TeamContainer/TeamContainer';
 import { Link } from 'react-router-dom';
 import fullrink from '../../images/full-rink.jpeg'
-// import paint from '../../images/paint.jpg'
+import './Footer.scss'
 import ice from '../../images/ice2.jpg';
 import NavLogos from '../NavLogos/NavLogos'
 
@@ -15,7 +15,7 @@ import NavLogos from '../NavLogos/NavLogos'
 const  Footer = () => {
 
     return(
-      <section className="section-welcome">
+      <section className="section-footer">
         <div className="footer__div--links">
 <Link to='/teams'className="footer__a--link"> 
   <h3>Teams</h3>
