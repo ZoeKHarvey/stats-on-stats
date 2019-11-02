@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux'
 import { player } from '../../reducers/playerInfo';
 import { fetchPlayerStats, fetchPlayerProjections } from '../../apiCalls';
+import './Player.scss'
 
  export class Player extends Component {
 
@@ -56,30 +57,52 @@ import { fetchPlayerStats, fetchPlayerProjections } from '../../apiCalls';
   }
  
   render() {
-    const {playerInfo, playerStats} = this.props
+    const {playerInfo, playerStats, playerProjections} = this.props
 	return (
 		<section className='player'>
-      {playerInfo.fullName}
-      {playerInfo.active}
-      {playerInfo.birthCity}
-      {playerInfo.birthCountry}
-      {playerInfo.birthStateProvince}
-      {playerInfo.captain}
-      {playerInfo.currentAge}
-      {playerInfo.height}
-      {playerInfo.weight}
-      {playerInfo.rosterStatus}
-      {playerInfo.shootsCatches}
-      {playerStats.assists}
-      {playerStats.games}
-      {playerStats.goals}
-      {playerStats.hits}
-      {playerStats.pim}
-      {playerStats.plusMinus}
-      {playerStats.points}
-      {playerStats.powerPlayPoints}
-      {playerStats.shotPct}
-      {playerStats.shots}
+      <div>
+        <h2 className="player__h2--name">{playerInfo.fullName}</h2>
+        <ul>
+      {/* <li>{playerInfo.active}</li> */}
+      <li>{playerInfo.birthCity}, {playerInfo.birthStateProvince}, {playerInfo.birthCountry}</li>
+      <li>{playerInfo.captain}</li>
+      <li>Age: {playerInfo.currentAge}</li>
+      <li>Height: {playerInfo.height}</li>
+      <li>Weight: {playerInfo.weight}</li>
+      <li>Status: {playerInfo.rosterStatus}</li>
+      <li>Left/Right - Handed: {playerInfo.shootsCatches}</li>
+      </ul>
+      </div>
+      <div>
+        <ul>
+        <li>{playerStats.assists}</li>
+        <li>{playerStats.games}</li>
+        <li>{playerStats.goals}</li>
+        <li>{playerStats.hits}</li>
+        <li>{playerStats.pim}</li>
+        <li>{playerStats.plusMinus}</li>
+        <li>{playerStats.points}</li>
+        <li>{playerStats.powerPlayPoints}</li>
+        <li>{playerStats.shotPct}</li>
+        <li>{playerStats.shots}</li>
+        <li>{playerStats.faceOffPct}</li>
+      </ul>
+      </div>
+      <div>
+        <ul>
+      <li>{playerProjections.assists}</li>
+      <li>{playerProjections.games}</li>
+      <li>{playerProjections.goals}</li>
+      <li>{playerProjections.hits}</li>
+      <li>{playerProjections.pim}</li>
+      <li>{playerProjections.plusMinus}</li>
+      <li>{playerProjections.points}</li>
+      <li>{playerProjections.powerPlayPoints}</li>
+      <li>{playerProjections.shotPct}</li>
+      <li>{playerProjections.shots}</li>
+      <li>{playerProjections.faceOffPct}</li>
+      </ul>
+      </div>
 		</section>
 
 	)}
