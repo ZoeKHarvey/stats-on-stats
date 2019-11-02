@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux'
 import { player } from '../../reducers/playerInfo';
-import { fetchPlayerStats } from '../../apiCalls';
+import { fetchPlayerStats, fetchPlayerProjections } from '../../apiCalls';
 
  export class Player extends Component {
 
@@ -12,7 +12,10 @@ import { fetchPlayerStats } from '../../apiCalls';
     const { playerInfo, getPlayerStats } = this.props;
     try {
       const stat = await fetchPlayerStats(playerInfo.id);
+      const projections = await fetchPlayerProjections(playerInfo.id)
+      console.log(projections)
       getPlayerStats(this.organizeStats(stat))
+      
     } catch (error) {
       console.log('error')
     }

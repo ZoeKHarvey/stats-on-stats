@@ -19,7 +19,7 @@ export class App extends Component {
       const teams = await fetchTeams();
       console.log('teams in app--->', teams)
       getTeams(teams);
-      fetchPlayerProjections()
+      // fetchPlayerProjections()
     } catch (error) {
       console.log('error')
     }

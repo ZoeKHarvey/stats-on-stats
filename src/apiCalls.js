@@ -41,5 +41,5 @@ export const fetchPlayerProjections = async() => {
   const response = await fetch('https://statsapi.web.nhl.com/api/v1/people/8473512/stats?stats=onPaceRegularSeason&season=20192020')
   const data = await response.json();
   console.log(data.stats[0].splits[0].stat)
-  return data.stats[0].stats[0].splits[0]
+  return data.stats[0].splits[0]
 }

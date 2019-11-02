@@ -28,6 +28,11 @@ export const getTeamSchedule = (id) => ({
   id
 })
 
+export const getPlayerProjections = (id) => ({
+  type: 'GET_PLAYER_PROJECTIONS',
+  id
+})
+
 export const isLoading = (isLoading) => ({
   type: 'IS_LOADING',
   isLoading
