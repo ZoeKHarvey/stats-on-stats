@@ -1,14 +1,64 @@
-import React from 'react'
+import React, {Component} from 'react'
 import { Link } from 'react-router-dom';
 import TeamRoster from '../RosterCard/RosterCard'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { getRoster, getTeamSchedule } from '../../actions';
-import './TeamCard.scss'
+import './TeamCard.scss';
+import { getTeams, isLoading, hasError, getRoster, getPlayer, getTeamSchedule } from '../../actions';
+import { fetchTeams, fetchRoster, fetchPlayer, fetchPlayerStats, fetchTeamSchedule, fetchPlayerProjections } from '../../apiCalls';
+import { Route } from 'react-router-dom';
 
-export const TeamCard = ({id, name, venue, firstYearOfPlay, division, conference, officialSiteUrl, franchiseId, active, getSingleRoster, getSingleTeamSchedule, handlelinkclicks}) => {
-  console.log('get single roster function', getSingleRoster)
 
+
+export class TeamCard extends Component {
+
+  getSingleRoster = async(e, id) =>{
+    e.preventDefault()
+    const { getRoster } = this.props;
+    try {
+      const roster = await fetchRoster(id);
+      getRoster(roster)
+    } catch(error) {
+      console.log('error')
+    }
+  }
+
+  getSingleTeamSchedule = async(e, id) => {
+    e.preventDefault();
+    const { getTeamSchedule }= this.props;
+    try {
+      const schedule = await fetchTeamSchedule(id);
+      console.log('schedule in function', schedule)
+      getTeamSchedule(this.cleanUpSchedule(schedule))
+    } catch(error) {
+      console.log('error')
+    }
+  }
+
+  cleanUpSchedule = (schedule) => {
+    return {
+      away: {
+      awayTeam: schedule.teams.away.team.name,
+      awayWins: schedule.teams.away.leagueRecord.wins,
+      awayLosses: schedule.teams.away.leagueRecord.losses,
+      awayOT: schedule.teams.away.leagueRecord.ot },
+      home: {
+        homeTeam: schedule.teams.home.team.name,
+        homeWins: schedule.teams.home.leagueRecord.wins,
+        homeLosses: schedule.teams.home.leagueRecord.losses,
+        homeOT: schedule.teams.home.leagueRecord.ot
+    }
+  }
+}
+
+  handler = (e, id) => {
+    this.getSingleRoster(e, id)
+    this.getSingleTeamSchedule(e, id)
+  }
+
+
+  render() {
+    const {id, name, venue, firstYearOfPlay, division, conference, officialSiteUrl } = this.props
       return (
         
          <section className="team-card"> 
@@ -22,16 +72,17 @@ export const TeamCard = ({id, name, venue, firstYearOfPlay, division, conference
           <a href={officialSiteUrl}>Official Site</a>
           {/* {franchiseId} */}
           {/* {active} */}
-            <button onClick={(e) => getSingleTeamSchedule(e, id)}>Schedule</button>
-          <Link to='/roster' onClick={handlelinkclicks}>
-            <button onClick={(e) => getSingleRoster(e, id)}>Team Roster</button>
+          <Link to='/roster'>
+            <button onClick={(e) => this.handler(e, id)}>Show Details</button>
+           
           </Link>
             {/* <h1>rosterrrr</h1> */}
 
           
         </section>
       )
-}   
+}   }
+
 
 export const mapStateToProps = (state) => ({
   teams: state.teams,
@@ -44,7 +95,7 @@ export const mapDispatchToProps = (dispatch) => (
     // hasError,
     // isLoading,
     getRoster,
-    getTeamSchedule
+    getTeamSchedule,
   }, dispatch)
 )
 export default connect(mapStateToProps, mapDispatchToProps)(TeamCard);

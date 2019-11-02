@@ -33,8 +33,8 @@ export const fetchTeamSchedule = async(id) => {
   console.log('in the fetch', id)
   const response = await fetch(`https://statsapi.web.nhl.com/api/v1/schedule?teamId=${id}`)
   const data = await response.json();
-  console.log(data.dates[0])
-  return data.dates
+  console.log(data.dates[0].games[0])
+  return data.dates[0].games[0]
 }
 
 export const fetchPlayerProjections = async() => {

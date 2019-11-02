@@ -23,9 +23,9 @@ export const getPlayerStats = (player) => ({
   player
 })
 
-export const getTeamSchedule = (id) => ({
+export const getTeamSchedule = (schedule) => ({
   type: 'GET_TEAM_SCHEDULE',
-  id
+  schedule
 })
 
 export const getPlayerProjections = (player) => ({
