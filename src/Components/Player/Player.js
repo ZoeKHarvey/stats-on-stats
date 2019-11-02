@@ -25,7 +25,17 @@ import { fetchPlayerStats, fetchPlayerProjections } from '../../apiCalls';
   organizeProjections = (projections) => {
     console.log('projections! -->', projections)
     return {
-      assists: projections.assists
+      assists: projections.assists,
+      games: projections.games,
+      goals: projections.goals,
+      hits: projections.hits,
+      pim: projections.pim,
+      plusMinus: projections.plusMinus,
+      points: projections.points,
+      powerPlayPoints: projections.powerPlayPoints,
+      shotPct: projections.shotPct,
+      shots: projections.shots,
+      faceOffPct: projections.faceOffPct
     }
   }
 
@@ -41,6 +51,7 @@ import { fetchPlayerStats, fetchPlayerProjections } from '../../apiCalls';
       powerPlayPoints: playerInfo.powerPlayPoints,
       shotPct: playerInfo.shotPct,
       shots: playerInfo.shots,
+      faceOffPct: playerInfo.faceOffPct
     }
   }
  
