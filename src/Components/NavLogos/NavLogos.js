@@ -41,6 +41,8 @@ return(
     <Link to='/roster'>
     <div className="nav__div">
     <img onClick={(e) => getSingleRoster(e, 6)} className="nav__img--logo" src={bruins} alt="flyers logo link to team page"/>
+    {/* </div> */}
+    
     <img onClick={(e) => getSingleRoster(e, 3)} className="nav__img--logo" src={rangers} alt="flyers logo link to team page"/>
     <img onClick={(e) => getSingleRoster(e, 8)} className="nav__img--logo" src={canadiens} alt="flyers logo link to team page"/>
     <img onClick={(e) => getSingleRoster(e, 17)} className="nav__img--logo" src={redwings} alt="flyers logo link to team page"/>

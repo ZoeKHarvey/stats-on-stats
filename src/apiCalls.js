@@ -29,3 +29,10 @@ export const fetchPlayerStats = async(id, year = 20192020) => {
   return data.stats[0].splits[0].stat
 }
 
+export const fetchTeamSchedule = async(id) => {
+  const response = await fetch(`https://statsapi.web.nhl.com/api/v1/schedule?teamId=${id}`)
+  const data = await response.json();
+  console.log(data)
+  return data.stats
+}
+
