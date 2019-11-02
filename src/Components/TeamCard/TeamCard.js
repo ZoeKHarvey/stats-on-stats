@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import TeamRoster from '../RosterCard/RosterCard'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { getRoster } from '../../actions';
+import { getRoster, getTeamSchedule } from '../../actions';
 import './TeamCard.scss'
 
-export const TeamCard = ({id, name, venue, teamName, firstYearOfPlay, division, conference, franchise, roster, shortName, officialSiteUrl, franchiseId, active, getSingleRoster}) => {
+export const TeamCard = ({id, name, venue, firstYearOfPlay, division, conference, officialSiteUrl, franchiseId, active, getSingleRoster, getSingleTeamSchedule, handlelinkclicks}) => {
   console.log('get single roster function', getSingleRoster)
 
       return (
@@ -22,11 +22,11 @@ export const TeamCard = ({id, name, venue, teamName, firstYearOfPlay, division, 
           <a href={officialSiteUrl}>Official Site</a>
           {/* {franchiseId} */}
           {/* {active} */}
-          
-            <button onClick={(e) => getSingleRoster(e, id)}>Team Roster</button>>
-          <Link to='/roster'>
-            <h1>rosterrrr</h1>
+            <button onClick={(e) => getSingleTeamSchedule(e, id)}>Schedule</button>
+          <Link to='/roster' onClick={handlelinkclicks}>
+            <button onClick={(e) => getSingleRoster(e, id)}>Team Roster</button>
           </Link>
+            {/* <h1>rosterrrr</h1> */}
 
           
         </section>
@@ -35,7 +35,7 @@ export const TeamCard = ({id, name, venue, teamName, firstYearOfPlay, division, 
 
 export const mapStateToProps = (state) => ({
   teams: state.teams,
-  errorMsg: state.errorMsg
+  errorMsg: state.errorMsg,
 })
 
 export const mapDispatchToProps = (dispatch) => (
@@ -43,7 +43,8 @@ export const mapDispatchToProps = (dispatch) => (
     // getTeams,
     // hasError,
     // isLoading,
-    getRoster
+    getRoster,
+    getTeamSchedule
   }, dispatch)
 )
-export default connect(mapStateToProps)(TeamCard);
+export default connect(mapStateToProps, mapDispatchToProps)(TeamCard);

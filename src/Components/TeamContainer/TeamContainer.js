@@ -5,7 +5,7 @@ import TeamRoster from '../RosterCard/RosterCard'
 
 
 
-export const TeamContainer = ({teams, roster, getSingleRoster}) => {
+export const TeamContainer = ({teams, roster, getSingleRoster, getSingleTeamSchedule, handlelinkclicks}) => {
   const alph = teams.sort((a,b) => {
    return b.conference.name - a.conference.name
   })
@@ -14,6 +14,8 @@ export const TeamContainer = ({teams, roster, getSingleRoster}) => {
     return <TeamCard key={al.id}
                         {...al}
                         getSingleRoster={getSingleRoster} 
+                        getSingleTeamSchedule={getSingleTeamSchedule}
+                        handlelinkclicks={handlelinkclicks}
                          />
 })
 

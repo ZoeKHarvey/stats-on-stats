@@ -1,6 +1,6 @@
 import { getTeams, isLoading, hasError, getRoster, getPlayer } from '../../actions';
 import { bindActionCreators } from 'redux';
-import { fetchTeams, fetchRoster, fetchPlayer, fetchPlayerStats } from '../../apiCalls';
+import { fetchTeams, fetchRoster, fetchPlayer, fetchPlayerStats, fetchTeamSchedule, fetchPlayerProjections } from '../../apiCalls';
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import './App.css';
@@ -19,6 +19,7 @@ export class App extends Component {
       const teams = await fetchTeams();
       console.log('teams in app--->', teams)
       getTeams(teams);
+      fetchPlayerProjections()
     } catch (error) {
       console.log('error')
     }
@@ -57,7 +58,17 @@ export class App extends Component {
       console.log('error')
     }
   }
-  /// Leaving off on single player stats being fetched
+  
+  getSingleTeamSchedule = async(e, id) => {
+    e.preventDefault();
+    const { getTeamSchedule }= this.props;
+    try {
+      const player = await fetchTeamSchedule(id);
+      getTeamSchedule(player)
+    } catch(error) {
+      console.log('error')
+    }
+  }
 
   cleanUpPlayer = (player) => {
     return {
@@ -77,6 +88,10 @@ export class App extends Component {
     }
   }
 
+  handlelinkclicks = (e) => {
+    e.stopPropagation()
+  }
+
   render() {
     return(
       <section className="section-app">
@@ -88,8 +103,8 @@ export class App extends Component {
         }
           />
           
-        <Route exact path='/teams' render={() => <TeamContainer getSingleRoster={this.getSingleRoster}  />} />
-        <Route exact path='/roster' render={() => <RosterContainer getSinglePlayer={this.getSinglePlayer} />} />
+        <Route exact path='/teams' render={() => <TeamContainer getSingleRoster={this.getSingleRoster} getSingleTeamSchedule={this.getSingleTeamSchedule} handlelinkclicks={this.handlelinkclicks}  />} />
+        <Route exact path='/roster' render={() => <RosterContainer getSinglePlayer={this.getSinglePlayer}  />} />
         <Route exact path='/standings' render={() => <StandingsContainer /> } />
         <Route exact path='/player' render={() => <Player />} />
       </section>

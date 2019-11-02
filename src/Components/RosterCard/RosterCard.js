@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
  export const TeamRoster = ({  jerseyNumber, person, position, getSinglePlayer }) => {
 
 	return (
-		<section className='roster-card' >
+		<section className='roster-card'>
       <Link to='/player'>
       <button>Show Details</button>
       </Link>
