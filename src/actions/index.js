@@ -23,6 +23,11 @@ export const getPlayerStats = (player) => ({
   player
 })
 
+export const getTeamSchedule = (id) => ({
+  type: 'GET_TEAM_SCHEDULE',
+  id
+})
+
 export const isLoading = (isLoading) => ({
   type: 'IS_LOADING',
   isLoading
