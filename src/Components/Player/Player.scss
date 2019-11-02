@@ -2,6 +2,9 @@
   font-family: 'Barlow Condensed', sans-serif;
   display: flex;
   justify-content: space-evenly;
+  height: 87vh;
+  
+
 }
 
 ul {
@@ -10,4 +13,11 @@ ul {
 
 .player__h2--name {
   display: block;
+}
+
+.player__img--ice {
+  position: absolute;
+  z-index: -100;
+  height: 100vh;
+  width: 100%;
 }

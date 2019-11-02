@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux'
 import { player } from '../../reducers/playerInfo';
 import { fetchPlayerStats, fetchPlayerProjections } from '../../apiCalls';
-import './Player.scss'
+import './Player.scss';
+import ice from '../../images/ice3.jpg'
 
  export class Player extends Component {
 
@@ -60,6 +61,7 @@ import './Player.scss'
     const {playerInfo, playerStats, playerProjections} = this.props
 	return (
 		<section className='player'>
+      <img class="player__img--ice" src={ice} alt="Ice"></img>
       <div>
         <h2 className="player__h2--name">{playerInfo.fullName}</h2>
         <ul>
@@ -74,33 +76,35 @@ import './Player.scss'
       </ul>
       </div>
       <div>
+        <h4>Current Season Stats</h4>
         <ul>
-        <li>{playerStats.assists}</li>
-        <li>{playerStats.games}</li>
-        <li>{playerStats.goals}</li>
-        <li>{playerStats.hits}</li>
-        <li>{playerStats.pim}</li>
-        <li>{playerStats.plusMinus}</li>
-        <li>{playerStats.points}</li>
-        <li>{playerStats.powerPlayPoints}</li>
-        <li>{playerStats.shotPct}</li>
-        <li>{playerStats.shots}</li>
-        <li>{playerStats.faceOffPct}</li>
+        <li>Assists: {playerStats.assists}</li>
+        <li>Games Played: {playerStats.games}</li>
+        <li>Goals: {playerStats.goals}</li>
+        <li>Hits: {playerStats.hits}</li>
+        <li>Penalties In Minutes: {playerStats.pim}</li>
+        <li>Plus/Minus: {playerStats.plusMinus}</li>
+        <li>Total Points: {playerStats.points}</li>
+        <li>Powerplay Points:{playerStats.powerPlayPoints}</li>
+        <li>Shooting Percentage:{playerStats.shotPct}</li>
+        <li>Shots Taken: {playerStats.shots}</li>
+        <li>FaceOff Percentage: {playerStats.faceOffPct}</li>
       </ul>
       </div>
       <div>
+          <h4>Projected Stats</h4>
         <ul>
-      <li>{playerProjections.assists}</li>
-      <li>{playerProjections.games}</li>
-      <li>{playerProjections.goals}</li>
-      <li>{playerProjections.hits}</li>
-      <li>{playerProjections.pim}</li>
-      <li>{playerProjections.plusMinus}</li>
-      <li>{playerProjections.points}</li>
-      <li>{playerProjections.powerPlayPoints}</li>
-      <li>{playerProjections.shotPct}</li>
-      <li>{playerProjections.shots}</li>
-      <li>{playerProjections.faceOffPct}</li>
+      <li>Assists: {playerProjections.assists}</li>
+      <li>Games Played: {playerProjections.games}</li>
+      <li>Goals: {playerProjections.goals}</li>
+      <li>Hits: {playerProjections.hits}</li>
+      <li>Penalties In Minutes: {playerProjections.pim}</li>
+      <li>Plus/Minus: {playerProjections.plusMinus}</li>
+      <li>Total Points: {playerProjections.points}</li>
+      <li>Powerplay Points: {playerProjections.powerPlayPoints}</li>
+      <li>Shot Percentage: {playerProjections.shotPct}</li>
+      <li>Shots Taken: {playerProjections.shots}</li>
+      <li>FaceOff Percentage: {playerProjections.faceOffPct}</li>
       </ul>
       </div>
 		</section>

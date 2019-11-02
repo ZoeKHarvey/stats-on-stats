@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import TeamCard from '../TeamCard/TeamCard'
 import { connect } from 'react-redux';
-import TeamRoster from '../RosterCard/RosterCard'
+import TeamRoster from '../RosterCard/RosterCard';
+// import ice from '../../images/ice4'
+import './TeamContainer.scss'
 
 
 
@@ -21,6 +23,7 @@ export const TeamContainer = ({teams, roster, getSingleRoster, getSingleTeamSche
 
     return(
       <section className="section-teamcontainer">
+        
         <h1>Team List</h1>
         {singleTeams}
     
