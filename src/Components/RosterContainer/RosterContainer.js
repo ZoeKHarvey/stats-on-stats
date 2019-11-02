@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import TeamCard from '../TeamCard/TeamCard'
 import { connect } from 'react-redux';
 import RosterCard from '../RosterCard/RosterCard'
+import './RosterContainer.scss'
 
 export const RosterContainer = ({roster, getSinglePlayer}) => {
   console.log('roster in container-->', roster)
@@ -12,7 +13,7 @@ export const RosterContainer = ({roster, getSinglePlayer}) => {
 })
 
     return(
-      <section className="section-teamcontainer">
+      <section className="section-rostercontainer">
         {singleRoster}
   
       </section>

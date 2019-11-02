@@ -9,7 +9,7 @@ import './TeamContainer.scss'
 
 export const TeamContainer = ({teams, roster, getSingleRoster, getSingleTeamSchedule, handlelinkclicks}) => {
   const alph = teams.sort((a,b) => {
-   return b.conference.name - a.conference.name
+   return a.division.id - b.division.id
   })
   console.log('alphabetized--->', alph)
   const singleTeams = alph.map((al) => {
@@ -24,8 +24,8 @@ export const TeamContainer = ({teams, roster, getSingleRoster, getSingleTeamSche
     return(
       <section className="section-teamcontainer">
         
-        <h1>Team List</h1>
         {singleTeams}
+        <h1>Team List</h1>
     
       </section>
     )

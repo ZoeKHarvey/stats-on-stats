@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 import { player } from '../../reducers/playerInfo';
 import { fetchPlayerStats, fetchPlayerProjections } from '../../apiCalls';
 import './Player.scss';
-import ice from '../../images/ice3.jpg'
+import ice from '../../images/ice6.jpg'
 
  export class Player extends Component {
 
