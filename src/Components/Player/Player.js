@@ -1,4 +1,4 @@
-import { getPlayerStats } from '../../actions';
+import { getPlayerStats, getPlayerProjections } from '../../actions';
 import React, {Component} from 'react';
 import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
@@ -9,15 +9,23 @@ import { fetchPlayerStats, fetchPlayerProjections } from '../../apiCalls';
  export class Player extends Component {
 
   componentDidMount = async () => {
-    const { playerInfo, getPlayerStats } = this.props;
+    const { playerInfo, getPlayerStats, getPlayerProjections } = this.props;
     try {
       const stat = await fetchPlayerStats(playerInfo.id);
       const projections = await fetchPlayerProjections(playerInfo.id)
       console.log(projections)
       getPlayerStats(this.organizeStats(stat))
+      getPlayerProjections(this.organizeProjections(projections.stat))
       
     } catch (error) {
       console.log('error')
+    }
+  }
+
+  organizeProjections = (projections) => {
+    console.log('projections! -->', projections)
+    return {
+      assists: projections.assists
     }
   }
 
@@ -69,12 +77,14 @@ import { fetchPlayerStats, fetchPlayerProjections } from '../../apiCalls';
 export const mapStateToProps = (state) => ({
   teams:state.teams,
   playerStats: state.playerStats,
-  playerInfo:state.playerInfo
+  playerInfo:state.playerInfo,
+  playerProjections:state.playerProjections
 })
 
 export const mapDispatchToProps = (dispatch) => (
   bindActionCreators({
-    getPlayerStats
+    getPlayerStats,
+    getPlayerProjections
   }, dispatch)
 )
 
