@@ -11,6 +11,7 @@ import NavLogos from '../NavLogos/NavLogos'
 import RosterContainer from '../RosterContainer/RosterContainer';
 import StandingsContainer from  '../StandingsContainer/StandingsContainer';
 import Player from '../Player/Player';
+import Footer from '../Footer/Footer'
 
 
 export class App extends Component {
@@ -98,8 +99,8 @@ export class App extends Component {
       <section className="section-app">
         <Route exact path='/' render={() => 
           <>
-          <WelcomePage />
-          <NavLogos getSingleRoster={this.getSingleRoster} /> 
+          <WelcomePage getSingleRoster={this.getSingleRoster} />
+       
           </>
         }/>
           
@@ -123,8 +124,10 @@ export class App extends Component {
         <Route exact path='/player' render={() => 
         <>
           <Player />
-          <NavLogos getSingleRoster={this.getSingleRoster}/>
+          {/* <NavLogos getSingleRoster={this.getSingleRoster}/> */}
           </>} />
+
+        <Footer />
       </section>
     )
   }
