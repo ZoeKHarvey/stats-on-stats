@@ -12,7 +12,7 @@ import ice from '../../images/ice2.jpg';
 import NavLogos from '../NavLogos/NavLogos'
 
 
-const  Footer = () => {
+export const  Footer = () => {
 
     return(
       <section className="section-footer">

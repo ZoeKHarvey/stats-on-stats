@@ -120,7 +120,7 @@ import ice from '../../images/ice6.jpg'
 }
 
 export const mapStateToProps = (state) => ({
-  teams:state.teams,
+  // teams:state.teams,
   playerStats: state.playerStats,
   playerInfo:state.playerInfo,
   playerProjections:state.playerProjections

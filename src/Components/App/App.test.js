@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme'
 import { App, mapStateToProps, mapDispatchToProps } from './App';
-import { getTeams } from '../../actions/index'
+import { getTeams, getRoster, getPlayer, getTeamSchedule } from '../../actions/index'
 
 jest.mock('../../apiCalls');
 
@@ -33,6 +33,7 @@ describe('mapStateToProps', () => {
 
     expect(mappedProps).toEqual(expected)
   });
+})
 
   describe('mapDispatchToProps', () => {
     let mockDispatch;
@@ -47,6 +48,30 @@ describe('mapStateToProps', () => {
       mappedProps.getTeams([{}, {}]);
 
       expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
+    });
+
+    it('calls dispatch with a getRoster action', () => {
+      const actionToDispatch = getRoster([{}, {}, {}]);
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      mappedProps.getRoster([{}, {}, {}]);
+
+      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
+    });
+
+    it('calls dispatch with a getPlayer action', () => {
+      const actionToDispatch = getPlayer({});
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      mappedProps.getPlayer({});
+      
+      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
+    });
+
+    it('calls dispatch with a getTeamSchedule action', () => {
+      const actionToDispatch = getTeamSchedule({});
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      mappedProps.getTeamSchedule({});
+
+      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
     })
+
   })
-})
