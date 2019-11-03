@@ -1,10 +1,10 @@
 import {
-  getTeams
+  fetchTeams
 } from './apiCalls';
 
 describe('getTeams', () => {
   const mockResponse = [{}, {}, {}];
-  const url = "await fetch('https://statsapi.web.nhl.com/api/v1/teams?expand=team.roster"
+  const url = 'https://statsapi.web.nhl.com/api/v1/teams?expand=team.roster'
 
   it('should call fetch with the correct URL', () => {
     window.fetch = jest.fn().mockImplementation(() => {
@@ -13,7 +13,8 @@ describe('getTeams', () => {
         json: () => Promise.resolve(mockResponse)
       });
     });
-    getTeams();
+
+    fetchTeams();
     
     expect(window.fetch).toHaveBeenCalledWith(url)
   })
