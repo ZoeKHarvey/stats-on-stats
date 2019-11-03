@@ -38,6 +38,11 @@ export const favoriteTeams = (newTeam) => ({
   newTeam
 })
 
+export const favoritePlayers = (newPlayer) => ({
+  type: 'GET_FAVORITE_PLAYERS',
+  newPlayer
+})
+
 export const isLoading = (isLoading) => ({
   type: 'IS_LOADING',
   isLoading
