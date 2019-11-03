@@ -4,17 +4,20 @@ import { connect } from 'react-redux';
 import RosterCard from '../RosterCard/RosterCard'
 import './RosterContainer.scss'
 
-export const RosterContainer = ({roster, getSinglePlayer}) => {
-  console.log('roster in container-->', roster)
+export const RosterContainer = ({roster, getSinglePlayer, teamSchedule}) => {
+  console.log('schedule in container-->', teamSchedule)
   const singleRoster = roster.map((roster) => {
     return <RosterCard {...roster}
                         getSinglePlayer = { getSinglePlayer } 
+                        teamSchedule = { teamSchedule }
                         />
 })
 
     return(
       <section className="section-rostercontainer">
         {singleRoster}
+        { teamSchedule.away.awayTeam }
+        { teamSchedule.home.homeTeam }
   
       </section>
     )
@@ -22,7 +25,8 @@ export const RosterContainer = ({roster, getSinglePlayer}) => {
 
 export const mapStateToProps = (state) => ({
   teams: state.teams,
-  roster: state.roster
+  roster: state.roster,
+  teamSchedule: state.teamSchedule
 })
 
 export default connect(mapStateToProps)(RosterContainer);

@@ -21,7 +21,8 @@ import { connect } from 'react-redux'
 }
 
 export const mapStateToProps = (state) => ({
-  teams:state.teams
+  teams:state.teams,
+  teamSchedule: state.teamSchedule
 })
 
 export default connect(mapStateToProps)(TeamRoster);

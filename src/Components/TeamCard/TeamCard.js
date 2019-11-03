@@ -73,7 +73,6 @@ export class TeamCard extends Component {
           {/* {active} */}
           <Link to='/roster'>
             <button onClick={(e) => this.handler(e, id)}>Show Details</button>
-           
           </Link>
             {/* <h1>rosterrrr</h1> */}
 
