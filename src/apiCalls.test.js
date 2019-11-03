@@ -17,5 +17,12 @@ describe('getTeams', () => {
     fetchTeams();
     
     expect(window.fetch).toHaveBeenCalledWith(url)
+  });
+
+  it('should return an array of players', () => {
+    expect(fetchTeams()).resolves.toEqual(mockResponse)
   })
+
+
+
 })
