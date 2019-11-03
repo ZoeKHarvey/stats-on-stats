@@ -56,7 +56,6 @@ export class TeamCard extends Component {
     this.getSingleTeamSchedule(e, id)
   }
 
-
   render() {
     const {id, name, venue, firstYearOfPlay, division, conference, officialSiteUrl } = this.props
       return (
@@ -95,7 +94,7 @@ export const mapDispatchToProps = (dispatch) => (
     // hasError,
     // isLoading,
     getRoster,
-    getTeamSchedule,
+    getTeamSchedule
   }, dispatch)
 )
 export default connect(mapStateToProps, mapDispatchToProps)(TeamCard);
