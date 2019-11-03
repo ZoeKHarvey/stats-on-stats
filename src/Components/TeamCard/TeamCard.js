@@ -8,9 +8,13 @@ import { getTeams, isLoading, hasError, getRoster, getPlayer, getTeamSchedule } 
 import { fetchTeams, fetchRoster, fetchPlayer, fetchPlayerStats, fetchTeamSchedule, fetchPlayerProjections } from '../../apiCalls';
 import { Route } from 'react-router-dom';
 
-
-
 export class TeamCard extends Component {
+  constructor() {
+    super();
+    this.state = {
+      isFavorited: this.isFavorited
+    }
+  }
 
   getSingleRoster = async(e, id) =>{
     e.preventDefault()
