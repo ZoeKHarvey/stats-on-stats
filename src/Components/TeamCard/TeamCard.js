@@ -4,7 +4,7 @@ import TeamRoster from '../RosterCard/RosterCard'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import './TeamCard.scss';
-import { getTeams, isLoading, hasError, getRoster, getPlayer, getTeamSchedule } from '../../actions';
+import { getTeams, isLoading, hasError, getRoster, getPlayer, getTeamSchedule, favoriteTeams } from '../../actions';
 import { fetchTeams, fetchRoster, fetchPlayer, fetchPlayerStats, fetchTeamSchedule, fetchPlayerProjections } from '../../apiCalls';
 import { Route } from 'react-router-dom';
 
@@ -29,7 +29,7 @@ export class TeamCard extends Component {
 
   getSingleTeamSchedule = async(e, id) => {
     e.preventDefault();
-    const { getTeamSchedule }= this.props;
+    const { getTeamSchedule } = this.props;
     try {
       const schedule = await fetchTeamSchedule(id);
       console.log('schedule in function', schedule)
@@ -37,6 +37,13 @@ export class TeamCard extends Component {
     } catch(error) {
       console.log('error')
     }
+  }
+
+  favoriteTeams = (e, id) => {
+    console.log('prrproproprpssss', this.props)
+    e.preventDefault()
+    const { favoriteTeams } = this.props
+    favoriteTeams(id)
   }
 
   cleanUpSchedule = (schedule) => {
@@ -58,6 +65,7 @@ export class TeamCard extends Component {
   handler = (e, id) => {
     this.getSingleRoster(e, id)
     this.getSingleTeamSchedule(e, id)
+    this.favoriteTeams(e, id)
   }
 
   render() {
@@ -79,6 +87,7 @@ export class TeamCard extends Component {
             <button onClick={(e) => this.handler(e, id)}>Show Details</button>
           </Link>
             {/* <h1>rosterrrr</h1> */}
+            <button onClick={this.favoriteTeams}>Favorite</button>
 
           
         </section>
@@ -97,7 +106,8 @@ export const mapDispatchToProps = (dispatch) => (
     // hasError,
     // isLoading,
     getRoster,
-    getTeamSchedule
+    getTeamSchedule,
+    favoriteTeams
   }, dispatch)
 )
 export default connect(mapStateToProps, mapDispatchToProps)(TeamCard);
