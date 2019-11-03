@@ -7,7 +7,8 @@ import { roster } from './roster';
 import { playerInfo } from './playerInfo';
 import {playerStats} from './playerStats';
 import { teamSchedule } from './teamSchedule';
-import { playerProjections } from './playerProjections'
+import { playerProjections } from './playerProjections';
+import { favoriteTeams } from './favoriteTeams';
 
 export const rootReducer = combineReducers({
     teams,
@@ -18,5 +19,6 @@ export const rootReducer = combineReducers({
     playerInfo,
     playerStats,
     teamSchedule,
-    playerProjections
+    playerProjections,
+    favoriteTeams
 })
