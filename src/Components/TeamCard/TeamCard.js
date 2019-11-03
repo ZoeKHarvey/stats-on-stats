@@ -39,7 +39,7 @@ export class TeamCard extends Component {
     }
   }
 
-  favoriteTeams = (e, id) => {
+  favoriteTeam = (e, id) => {
     console.log('prrproproprpssss', this.props)
     e.preventDefault()
     const { favoriteTeams } = this.props
@@ -65,7 +65,7 @@ export class TeamCard extends Component {
   handler = (e, id) => {
     this.getSingleRoster(e, id)
     this.getSingleTeamSchedule(e, id)
-    this.favoriteTeams(e, id)
+    this.favoriteTeam(e, id)
   }
 
   render() {

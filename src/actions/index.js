@@ -38,7 +38,7 @@ export const favoriteTeams = (newTeam) => ({
   newTeam
 })
 
-export const favoritePlayers = (newPlayer) => ({
+export const favoritePlayer = (newPlayer) => ({
   type: 'GET_FAVORITE_PLAYERS',
   newPlayer
 })

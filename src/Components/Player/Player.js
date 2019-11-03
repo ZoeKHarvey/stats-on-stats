@@ -1,4 +1,4 @@
-import { getPlayerStats, getPlayerProjections } from '../../actions';
+import { getPlayerStats, getPlayerProjections, favoritePlayer } from '../../actions';
 import React, {Component} from 'react';
 import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
@@ -56,6 +56,12 @@ import ice from '../../images/ice6.jpg'
       faceOffPct: playerInfo.faceOffPct
     }
   }
+
+  favoriteAPlayer = (e, id) => {
+    e.preventDefault();
+    const { favoritePlayer } = this.props;
+    favoritePlayer(id)
+  }
  
   render() {
     const {playerInfo, playerStats, playerProjections} = this.props
@@ -107,6 +113,7 @@ import ice from '../../images/ice6.jpg'
       <li>FaceOff Percentage: {playerProjections.faceOffPct}</li>
       </ul>
       </div>
+      <button onClick={(e) => this.favoriteAPlayer(e, playerInfo.id)}>Favorite</button>
 		</section>
 
 	)}
@@ -122,7 +129,8 @@ export const mapStateToProps = (state) => ({
 export const mapDispatchToProps = (dispatch) => (
   bindActionCreators({
     getPlayerStats,
-    getPlayerProjections
+    getPlayerProjections,
+    favoritePlayer
   }, dispatch)
 )
 
