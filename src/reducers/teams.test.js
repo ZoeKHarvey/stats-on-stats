@@ -19,6 +19,15 @@ describe('teams', () => {
     const result = [{name: 'dog', age: 98}];
 
     expect(teams(initialState, action)).toEqual(result)
+  });
+
+  it('should return initial state if action is not GET_TEAMS', () => {
+    const initialState = [];
+    const action = {
+      type: 'WHAT',
+      teams: [{}, {}]
+    };
+    expect(teams(initialState, action)).toEqual(initialState)
   })
 
 })

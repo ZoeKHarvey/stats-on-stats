@@ -19,6 +19,15 @@ describe('teamSchedule', () => {
     const result = {name: 'dog', age: 98};
 
     expect(teamSchedule(initialState, action)).toEqual(result)
+  });
+
+  it('should return initial state if action is not GET_TEAM_SCHEDULE', () => {
+    const initialState = [];
+    const action = {
+      type: 'WHAT',
+      teamSchedule: [{}, {}]
+    };
+    expect(teamSchedule(initialState, action)).toEqual(initialState)
   })
 
 })
