@@ -33,7 +33,6 @@ export const TeamContainer = ({teams, roster, getSingleRoster, getSingleTeamSche
 }
 
 export const mapStateToProps = (state) => ({
-
   teams: state.teams
 })
 
