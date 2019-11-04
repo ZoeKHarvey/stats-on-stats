@@ -3,8 +3,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux'
 
- export const RosterCard = ({  jerseyNumber, person, position, getSinglePlayer }) => {
 
+ export const RosterCard = ({  jerseyNumber, person, position, getSinglePlayer }) => {
+ 
 	return (
 		<section className='roster-card'>
       <Link to='/player'>

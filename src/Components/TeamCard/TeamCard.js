@@ -72,7 +72,7 @@ export class TeamCard extends Component {
     const {id, name, venue, firstYearOfPlay, division, conference, officialSiteUrl } = this.props
       return (
         
-         <section className="team-card"> 
+         <section className="team-card" > 
           <h2>{name}</h2>
           <h4>HomeTown: {venue.city}</h4>
           <h4>Founded: {firstYearOfPlay}</h4>

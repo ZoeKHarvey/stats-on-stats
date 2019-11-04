@@ -20,8 +20,8 @@ export const  Footer = () => {
 <Link to='/teams'className="footer__a--link"> 
   <h3>Teams</h3>
 </Link>
-<Link to='/standings' className="footer__a--link">
-  <h3>Standings</h3>
+<Link to='/favorites' className="footer__a--link">
+  <h3>Favorite Players</h3>
 </Link>
 </div>
       </section>
