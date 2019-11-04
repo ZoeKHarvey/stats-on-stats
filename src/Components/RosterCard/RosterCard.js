@@ -12,7 +12,7 @@ import { connect } from 'react-redux'
     <p className="roster__p--number">{jerseyNumber}</p>
     <p className="roster__p--pname">{position.name}</p>
     <Link to='/player'>
-    <button className="player__button" onClick={(e) => getSinglePlayer(e, person.id)}>ShowPlayer</button>
+    <button className="player__button" onMouseEnter={(e) => getSinglePlayer(e, person.id)}>ShowPlayer</button>
     </Link>
 		</section>
 

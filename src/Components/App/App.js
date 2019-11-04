@@ -9,7 +9,6 @@ import { Route } from 'react-router-dom';
 import WelcomePage from '../WelcomePage/WelcomePage'
 import NavLogos from '../NavLogos/NavLogos'
 import RosterContainer from '../RosterContainer/RosterContainer';
-import StandingsContainer from  '../StandingsContainer/StandingsContainer';
 import Player from '../Player/Player';
 import Footer from '../Footer/Footer';
 import FavoritePlayersContainer from '../FavoritePlayersContainer/FavoritePlayersContainer'
@@ -22,7 +21,6 @@ export class App extends Component {
       const teams = await fetchTeams();
       console.log('teams in app--->', teams)
       getTeams(teams);
-      // fetchPlayerProjections()
     } catch (error) {
       console.log('error')
     }
@@ -107,9 +105,6 @@ export class App extends Component {
             key={Date.now()}
             getSinglePlayer={this.getSinglePlayer}  
             /> </>} />
-
-        <Route exact path='/standings' render={() => 
-          <StandingsContainer key={Date.now()} /> } />
 
         <Route exact path='/player' render={() => 
         <>
