@@ -11,6 +11,10 @@ describe('TeamCard', () => {
   let cleanUpSchedule = jest.fn();
   let handleDetails = jest.fn();
 
+  let mockPlayer = {
+    id: 2
+  }
+
   let venue = {
     city: 'Philly',
     name: 'Wells Fargo'

@@ -1,9 +1,7 @@
 import { getPlayerStats, getPlayerProjections, favoritePlayer } from '../../actions';
 import React, {Component} from 'react';
 import { bindActionCreators } from 'redux';
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux'
-import { player } from '../../reducers/playerInfo';
+import { connect } from 'react-redux';
 import { fetchPlayerStats, fetchPlayerProjections } from '../../apiCalls';
 import './Player.scss';
 import ice from '../../images/ice6.jpg'

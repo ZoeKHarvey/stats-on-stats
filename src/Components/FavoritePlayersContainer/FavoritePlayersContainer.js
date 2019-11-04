@@ -6,11 +6,12 @@ import './FavoritePlayersContainer.scss'
 export const FavoritePlayersContainer = ({teamSchedule, getSinglePlayer, favoritePlayers}) => {
   const player = favoritePlayers.map((player) => {
     console.log('player in fave container --->', player)
-    return <FavoriteCard {...player}
+    return <FavoriteCard key={Date.now()}
+                        {...player}
                         getSinglePlayer = { getSinglePlayer } 
                         teamSchedule = { teamSchedule }
                         />
-})
+});
 
 return(
   <section className="favorite__player--container">

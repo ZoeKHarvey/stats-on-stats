@@ -87,7 +87,7 @@ export class App extends Component {
       <section className="section-app">
         <Route exact path='/' render={() => 
           <>
-          <WelcomePage getSingleRoster={this.getSingleRoster} />
+          <WelcomePage key={Date.now()} getSingleRoster={this.getSingleRoster} />
        
           </>
         }/>
@@ -95,6 +95,7 @@ export class App extends Component {
         <Route exact path='/teams' render={() => 
         <>
           <TeamContainer 
+            key={Date.now()}
             getSingleRoster={this.getSingleRoster} 
             getSingleTeamSchedule={this.getSingleTeamSchedule} 
             handlelinkclicks={this.handlelinkclicks}  />
@@ -103,18 +104,19 @@ export class App extends Component {
         <Route exact path='/roster' render={() => 
           <>
           <RosterContainer 
+            key={Date.now()}
             getSinglePlayer={this.getSinglePlayer}  
             /> </>} />
 
         <Route exact path='/standings' render={() => 
-          <StandingsContainer /> } />
+          <StandingsContainer key={Date.now()} /> } />
 
         <Route exact path='/player' render={() => 
         <>
-          <Player />
+          <Player key={Date.now()} />
           </>} />
         <Route exact path='/favorites' render={() => 
-          <FavoritePlayersContainer />}/>
+          <FavoritePlayersContainer key={Date.now()} />}/>
 
         <Footer />
       </section>

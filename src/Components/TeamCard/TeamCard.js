@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom';
-import TeamRoster from '../RosterCard/RosterCard'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import './TeamCard.scss';
@@ -16,7 +15,7 @@ export class TeamCard extends Component {
       const roster = await fetchRoster(id);
       getRoster(roster)
     } catch(error) {
-      console.log('error')
+      return 'Roster Not Available'
     }
   }
 
@@ -24,7 +23,6 @@ export class TeamCard extends Component {
     const { getTeamSchedule } = this.props;
     try {
       const schedule = await fetchTeamSchedule(id);
-      console.log('schedule in function', schedule)
       getTeamSchedule(this.cleanUpSchedule(schedule))
     } catch(error) {
       return 'No Games Today'

@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme'
 import { Player, mapStateToProps, mapDispatchToProps } from './Player';
 import { getPlayerStats, getPlayerProjections, favoritePlayer } from '../../actions/index';
@@ -54,5 +53,4 @@ describe('mockStateToProps', () => {
 
   const mockDispatch = jest.fn();
 
-// favorite a player test 
 })

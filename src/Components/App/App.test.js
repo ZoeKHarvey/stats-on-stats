@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme'
 import { App, mapStateToProps, mapDispatchToProps } from './App';
 import { getTeams, getRoster, getPlayer, getTeamSchedule } from '../../actions/index'
@@ -72,6 +71,5 @@ describe('mapStateToProps', () => {
       mappedProps.getTeamSchedule({});
 
       expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
-    })
-
+    });
   })
