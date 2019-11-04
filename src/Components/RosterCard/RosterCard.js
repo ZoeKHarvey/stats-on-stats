@@ -15,7 +15,6 @@ import { connect } from 'react-redux'
     <button className="player__button" onMouseEnter={(e) => getSinglePlayer(e, person.id)}>ShowPlayer</button>
     </Link>
 		</section>
-
 	)
 }
 

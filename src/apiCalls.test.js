@@ -26,18 +26,20 @@ describe('getTeams', () => {
 });
 
 describe('fetchRoster', () => {
+  let url;
+  let id;
   const mockResponse = [{}, {}, {}];
-  let id = 111111;
-  const url = `https://statsapi.web.nhl.com/api/v1/teams/${id}?expand=team.roster`;
-
+  
   it('should call fetch with the correct url', () => {
+    id = 8476941;
+    url = `https://statsapi.web.nhl.com/api/v1/teams/${id}?expand=team.roster`;
     window.fetch = jest.fn().mockImplementation(() => {
       return Promise.resolve({
         ok: true,
         json: () => Promise.resolve(mockResponse)
       });
     });
-    fetchRoster();
+    fetchRoster(id);
     expect(window.fetch).toHaveBeenCalledWith(url)
   });
 });
