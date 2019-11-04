@@ -7,23 +7,19 @@ import TeamContainer from '../TeamContainer/TeamContainer';
 import { Link } from 'react-router-dom';
 import fullrink from '../../images/full-rink.jpeg'
 import './WelcomePage.scss';
-import paint from '../../images/paint.jpg'
+// import paint from '../../images/paint.jpg'
+import ice from '../../images/ice2.jpg';
+import NavLogos from '../NavLogos/NavLogos'
 
 
-const  WelcomePage = () => {
+const  WelcomePage = ({getSingleRoster}) => {
 
     return(
       <section className="section-welcome">
         <h1 className="welcome__h1--title">ICED</h1>
-        
         <img className="section__img--stadium" src={fullrink} alt="nhl stadium" />
-        <img className="section__img--paint" src={paint} alt="paint backround" />
-        <Link to='/teams'> 
-          <h3>Teams</h3>
-        </Link>
-        <Link to='/standings'>
-          <h3>Standings</h3>
-        </Link>
+        <img className="section__img--paint" src={ice} alt="paint backround" />
+        <NavLogos getSingleRoster={getSingleRoster} /> 
       </section>
     )
   }

@@ -1,6 +1,6 @@
-import { getTeams, isLoading, hasError, getRoster, getPlayer } from '../../actions';
+import { getTeams, isLoading, hasError, getRoster, getPlayer, getTeamSchedule } from '../../actions';
 import { bindActionCreators } from 'redux';
-import { fetchTeams, fetchRoster, fetchPlayer, fetchPlayerStats } from '../../apiCalls';
+import { fetchTeams, fetchRoster, fetchPlayer, fetchPlayerStats, fetchTeamSchedule, fetchPlayerProjections } from '../../apiCalls';
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import './App.css';
@@ -10,7 +10,9 @@ import WelcomePage from '../WelcomePage/WelcomePage'
 import NavLogos from '../NavLogos/NavLogos'
 import RosterContainer from '../RosterContainer/RosterContainer';
 import StandingsContainer from  '../StandingsContainer/StandingsContainer';
-import Player from '../Player/Player'
+import Player from '../Player/Player';
+import Footer from '../Footer/Footer'
+
 
 export class App extends Component {
   componentDidMount = async () => {
@@ -19,21 +21,22 @@ export class App extends Component {
       const teams = await fetchTeams();
       console.log('teams in app--->', teams)
       getTeams(teams);
+      // fetchPlayerProjections()
     } catch (error) {
       console.log('error')
     }
   }
 
-  getSingleRoster = async(e, id) =>{
-    e.preventDefault()
-    const { getRoster } = this.props;
-    try {
-      const roster = await fetchRoster(id);
-      getRoster(roster)
-    } catch(error) {
-      console.log('error')
-    }
-  }
+  // getSingleRoster = async(e, id) =>{
+  //   e.preventDefault()
+  //   const { getRoster } = this.props;
+  //   try {
+  //     const roster = await fetchRoster(id);
+  //     getRoster(roster)
+  //   } catch(error) {
+  //     console.log('error')
+  //   }
+  // }
 
   getSinglePlayer = async(e, id) => {
     e.preventDefault();
@@ -57,7 +60,34 @@ export class App extends Component {
       console.log('error')
     }
   }
-  /// Leaving off on single player stats being fetched
+  
+  // getSingleTeamSchedule = async(e, id) => {
+  //   e.preventDefault();
+  //   const { getTeamSchedule }= this.props;
+  //   try {
+  //     const schedule = await fetchTeamSchedule(id);
+  //     console.log('schedule in function', schedule)
+  //     getTeamSchedule(this.cleanUpSchedule(schedule))
+  //   } catch(error) {
+  //     console.log('error')
+  //   }
+  // }
+
+//   cleanUpSchedule = (schedule) => {
+//     return {
+//       away: {
+//       awayTeam: schedule.teams.away.team.name,
+//       awayWins: schedule.teams.away.leagueRecord.wins,
+//       awayLosses: schedule.teams.away.leagueRecord.losses,
+//       awayOT: schedule.teams.away.leagueRecord.ot },
+//       home: {
+//         homeTeam: schedule.teams.home.team.name,
+//         homeWins: schedule.teams.home.leagueRecord.wins,
+//         homeLosses: schedule.teams.home.leagueRecord.losses,
+//         homeOT: schedule.teams.home.leagueRecord.ot
+//     }
+//   }
+// }
 
   cleanUpPlayer = (player) => {
     return {
@@ -77,21 +107,44 @@ export class App extends Component {
     }
   }
 
+  handlelinkclicks = (e) => {
+    e.stopPropagation()
+  }
+
   render() {
     return(
       <section className="section-app">
         <Route exact path='/' render={() => 
           <>
-          <WelcomePage />
-          <NavLogos getSingleRoster={this.getSingleRoster} /> 
+          <WelcomePage getSingleRoster={this.getSingleRoster} />
+       
           </>
-        }
-          />
+        }/>
           
-        <Route exact path='/teams' render={() => <TeamContainer getSingleRoster={this.getSingleRoster}  />} />
-        <Route exact path='/roster' render={() => <RosterContainer getSinglePlayer={this.getSinglePlayer} />} />
-        <Route exact path='/standings' render={() => <StandingsContainer /> } />
-        <Route exact path='/player' render={() => <Player />} />
+        <Route exact path='/teams' render={() => 
+        <>
+          <TeamContainer 
+            getSingleRoster={this.getSingleRoster} 
+            getSingleTeamSchedule={this.getSingleTeamSchedule} 
+            handlelinkclicks={this.handlelinkclicks}  />
+          </>} />
+
+        <Route exact path='/roster' render={() => 
+          <>
+          <RosterContainer 
+            getSinglePlayer={this.getSinglePlayer}  
+            /> </>} />
+
+        <Route exact path='/standings' render={() => 
+          <StandingsContainer /> } />
+
+        <Route exact path='/player' render={() => 
+        <>
+          <Player />
+          {/* <NavLogos getSingleRoster={this.getSingleRoster}/> */}
+          </>} />
+
+        <Footer />
       </section>
     )
   }
@@ -109,7 +162,8 @@ export const mapDispatchToProps = (dispatch) => (
     hasError,
     isLoading,
     getRoster,
-    getPlayer
+    getPlayer,
+    getTeamSchedule
   }, dispatch)
 )
 

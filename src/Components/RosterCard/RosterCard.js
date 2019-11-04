@@ -1,4 +1,4 @@
-
+import './RosterCard.scss'
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux'
@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
  export const TeamRoster = ({  jerseyNumber, person, position, getSinglePlayer }) => {
 
 	return (
-		<section className='roster-card' >
+		<section className='roster-card'>
       <Link to='/player'>
       <button>Show Details</button>
       </Link>
@@ -21,7 +21,8 @@ import { connect } from 'react-redux'
 }
 
 export const mapStateToProps = (state) => ({
-  teams:state.teams
+  teams:state.teams,
+  teamSchedule: state.teamSchedule
 })
 
 export default connect(mapStateToProps)(TeamRoster);

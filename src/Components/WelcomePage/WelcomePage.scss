@@ -1,10 +1,11 @@
 .section__img--stadium {
   position: absolute;
   z-index: -5;
-  width: 48%;
+  width: 51%;
   margin-left: 2%;
   margin-top: 3%;
-  opacity: .5
+  opacity: .3;
+  border: 18px solid white;
 }
 
 .section__img--paint {
@@ -19,12 +20,31 @@
 
 .section-welcome {
   height: 92vh;
+  font-family: 'Barlow Condensed', sans-serif;
 }
 
 .welcome__h1--title {
   font-family: "Anton", sans-serif;
   position: absolute;
-  font-size: 5em;
+  font-size: 7em;
   margin-left: 15%;
   text-shadow: 2px 2px #CCDBDC;
+  margin-top: 5%;
 }
+
+.welcome__div--links {
+  display: flex;
+    flex-direction: column;
+    width: 15%;
+    margin-left: auto;
+    margin-right: 16%;
+    padding-top: 7%;
+}
+
+// .welcome__a--link {
+//   float: right;
+// }
+
+
+
+
