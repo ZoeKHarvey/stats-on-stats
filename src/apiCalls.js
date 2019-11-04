@@ -1,14 +1,14 @@
 export const fetchTeams = async() => {
   const response = await fetch('https://statsapi.web.nhl.com/api/v1/teams?expand=team.roster');
   const data = await response.json();
-  console.log(data)
   return data.teams
 }
 
-export const fetchStandings = async() => {
-  const response = await fetch ('https://statsapi.web.nhl.com/api/v1/standings?expand=standings.record');
+export const fetchStandings = async(standingsType = 'regularSeason', year = 20192020) => {
+  const response = await fetch (`https://statsapi.web.nhl.com/api/v1/standings/${standingsType}?season=${year}`);
   const data = await response.json();
-  return data.records
+  console.log('data in standings', data.records)
+  return data
 }
 
 export const fetchRoster = async(id) => {
@@ -19,11 +19,13 @@ export const fetchRoster = async(id) => {
 
 export const fetchPlayer = async(id) => {
   const response = await fetch(`https://statsapi.web.nhl.com/api/v1/people/${id} `)
-  console.log('-------->', response)
   const data = await response.json();
-  console.log('=======>>>>', data.people[0])
   return data.people[0]
 }
 
-
+export const fetchPlayerStats = async(id, year = 20192020) => {
+  const response = await fetch(`https://statsapi.web.nhl.com/api/v1/people/${id}/stats?stats=statsSingleSeason&season=${year}`)
+  const data = await response.json();
+  return data.stats[0].splits[0].stat
+}
 

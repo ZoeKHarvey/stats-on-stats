@@ -1,5 +1,5 @@
-export const player = (state = {}, action) => {
-  console.log('in player reducer')
+export const playerInfo = (state = {}, action) => {
+  console.log('action--->', action)
   switch(action.type) {
     case 'GET_PLAYER':
       return action.player;
