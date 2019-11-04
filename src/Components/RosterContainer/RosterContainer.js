@@ -23,22 +23,22 @@ export const RosterContainer = ({roster, getSinglePlayer, teamSchedule}) => {
     return(
       <section className="section-rostercontainer">
         <div className="roster__container--game">
-        <h2 className="roster--h2--game">Today's Game</h2>
+          <h2 className="roster--h2--game">Today's Game</h2>
         <div className="roster__div--schedule">
           <div className="roster__div--home">
             <h3>Home Team</h3>
-          <h3 className="roster__h3--home">{ homeTeam }</h3>
-        <h4>{ homeWins }</h4>
-        <h4>{ homeLosses }</h4>
-        <h4>{ homeOT }</h4>
-        </div>
-        <div className="roster__div--away">
-          <h3>Away Team</h3>
-        <h3 className="roster__h3--away">{ awayTeam }</h3>
-        <h4>{ awayWins }</h4>
-        <h4>{ awayLosses }</h4>
-        <h4>{ awayOT }</h4>
-        </div>
+            <h3 className="roster__h3--home">{ homeTeam }</h3>
+            <h4>{ homeWins }</h4>
+            <h4>{ homeLosses }</h4>
+            <h4>{ homeOT }</h4>
+          </div>
+          <div className="roster__div--away">
+            <h3>Away Team</h3>
+            <h3 className="roster__h3--away">{ awayTeam }</h3>
+            <h4>{ awayWins }</h4>
+            <h4>{ awayLosses }</h4>
+            <h4>{ awayOT }</h4>
+          </div>
         </div>
         <h1 className="roster__h1--roster">Roster</h1>
         </div>

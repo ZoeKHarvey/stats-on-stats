@@ -85,7 +85,6 @@ export class App extends Component {
         <Route exact path='/' render={() => 
           <>
           <WelcomePage key={Date.now()} getSingleRoster={this.getSingleRoster} />
-       
           </>
         }/>
           
@@ -111,12 +110,10 @@ export class App extends Component {
           </>} />
         <Route exact path='/favorites' render={() => 
           <FavoritePlayersContainer key={Date.now()} />}/>
-
         <Footer />
       </section>
     )
   }
-
 }
 
 export const mapStateToProps = (state) => ({

@@ -19,13 +19,13 @@ return(
   {player}
   </section>
 )
-}
+};
 
 export const mapStateToProps = (state) => ({
   roster: state.roster,
   teamSchedule: state.teamSchedule,
   favoritePlayers: state.favoritePlayers
-})
+});
 
 export default connect(mapStateToProps)(FavoritePlayersContainer)
 
@@ -33,4 +33,4 @@ FavoriteCard.propTypes = {
   roster: PropTypes.object,
   teamSchedule: PropTypes.object,
   favoritePlayers: PropTypes.array
-}
+};
