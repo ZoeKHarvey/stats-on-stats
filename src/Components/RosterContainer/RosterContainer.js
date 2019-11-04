@@ -12,13 +12,18 @@ export const RosterContainer = ({roster, getSinglePlayer, teamSchedule}) => {
                         teamSchedule = { teamSchedule }
                         />
 })
-
+  const homeTeam = teamSchedule.home === undefined ? '' : teamSchedule.home.homeTeam;
+  const awayTeam = teamSchedule.away === undefined ? '' : teamSchedule.away.awayTeam
+  // const 
   
 
     return(
       <section className="section-rostercontainer">
         <div className="roster__container--game">
         <h2 className="roster--h2--game">Today's Game</h2>
+
+        {homeTeam}
+        {awayTeam}
         {/* <div className="roster__div--schedule">
           <div className="roster__div--home">
             <h3>Home Team</h3>
