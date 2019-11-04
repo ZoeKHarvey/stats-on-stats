@@ -28,16 +28,16 @@ export class App extends Component {
     }
   }
 
-  // getSingleRoster = async(e, id) =>{
-  //   e.preventDefault()
-  //   const { getRoster } = this.props;
-  //   try {
-  //     const roster = await fetchRoster(id);
-  //     getRoster(roster)
-  //   } catch(error) {
-  //     console.log('error')
-  //   }
-  // }
+  getSingleRoster = async(id) =>{
+    const { getRoster } = this.props;
+    try {
+      const roster = await fetchRoster(id);
+      getRoster(roster)
+    } catch(error) {
+      console.log('error')
+    }
+  }
+
 
   getSinglePlayer = async(e, id) => {
     this.getSinglePlayerStats(e, id)
@@ -50,7 +50,7 @@ export class App extends Component {
     }
   }
 
-  getSinglePlayerStats = async(e, id) => {
+  getSinglePlayerStats = async(id) => {
     const { getPlayerStats } = this.props;
     try {
       const player = await fetchPlayerStats(id);
@@ -59,34 +59,6 @@ export class App extends Component {
       console.log('error')
     }
   }
-  
-  // getSingleTeamSchedule = async(e, id) => {
-  //   e.preventDefault();
-  //   const { getTeamSchedule }= this.props;
-  //   try {
-  //     const schedule = await fetchTeamSchedule(id);
-  //     console.log('schedule in function', schedule)
-  //     getTeamSchedule(this.cleanUpSchedule(schedule))
-  //   } catch(error) {
-  //     console.log('error')
-  //   }
-  // }
-
-//   cleanUpSchedule = (schedule) => {
-//     return {
-//       away: {
-//       awayTeam: schedule.teams.away.team.name,
-//       awayWins: schedule.teams.away.leagueRecord.wins,
-//       awayLosses: schedule.teams.away.leagueRecord.losses,
-//       awayOT: schedule.teams.away.leagueRecord.ot },
-//       home: {
-//         homeTeam: schedule.teams.home.team.name,
-//         homeWins: schedule.teams.home.leagueRecord.wins,
-//         homeLosses: schedule.teams.home.leagueRecord.losses,
-//         homeOT: schedule.teams.home.leagueRecord.ot
-//     }
-//   }
-// }
 
   cleanUpPlayer = (player) => {
     return {
@@ -140,7 +112,6 @@ export class App extends Component {
         <Route exact path='/player' render={() => 
         <>
           <Player />
-          {/* <NavLogos getSingleRoster={this.getSingleRoster}/> */}
           </>} />
         <Route exact path='/favorites' render={() => 
           <FavoritePlayersContainer />}/>

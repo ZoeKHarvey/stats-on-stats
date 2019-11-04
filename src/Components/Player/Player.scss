@@ -12,6 +12,8 @@ ul {
 
 .player__h2--name {
   display: block;
+  font-size: 2em;
+  margin-top: 0;
 }
 
 .player__img--ice {
@@ -31,5 +33,16 @@ ul {
   position: absolute;
   top: 0;
   right: 0;
-  
+}
+
+.player__row {
+  padding-top: 20%;
+}
+
+.player__button--fave {
+  margin: 2% 2%;
+  border-radius: 2em;
+  &:hover {
+   transform: scale(1.5) 
+  }
 }

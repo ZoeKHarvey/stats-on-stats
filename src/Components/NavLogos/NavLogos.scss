@@ -20,9 +20,10 @@ background: rgba(255, 255, 255, 0.4);
   margin-right: 3%;
 }
 
-a {
-  border: 2px dashed red;
+.nav__img--logo:hover {
+  transform: scale(1.4)
 }
+
 
 nav{
   position:fixed;

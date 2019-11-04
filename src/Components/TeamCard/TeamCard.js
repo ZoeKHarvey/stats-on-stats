@@ -31,11 +31,6 @@ export class TeamCard extends Component {
     }
   }
 
-  // favoriteTeam = (e, id) => {
-  //   const { favoriteTeams } = this.props
-  //   favoriteTeams(id)
-  // }
-
   cleanUpSchedule = (schedule) => {
     return {
       away: {
@@ -61,7 +56,6 @@ export class TeamCard extends Component {
   render() {
     const {id, name, venue, firstYearOfPlay, division, conference, officialSiteUrl } = this.props;
     // const teamSchedError = teamSchedule || 'No Games Today'
-    console.log('IDDDDD', id)
       return (
          <section className="team-card" > 
           <h2>{name}</h2>
@@ -72,7 +66,7 @@ export class TeamCard extends Component {
           <h4>Division: {division.name}</h4>
           <h4>Conference: {conference.name}</h4>
           <Link to='/roster' >
-            <button onMouseEnter={(e) => this.handleDetails(e, id)}>Show Details</button>
+            <button className="teamcard__button--details" onMouseEnter={(e) => this.handleDetails(e, id)}>Show Details</button>
           </Link>
         </section>
       )

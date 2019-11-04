@@ -5,6 +5,7 @@
   display: flex;
   flex-wrap: wrap;
   overflow: scroll;
+  font-family: 'Barlow Condensed', sans-serif;
 }
 
 .roster__h3--away,
@@ -36,4 +37,18 @@
   border-bottom: 1px solid black;
   width: 100%;
   padding-bottom: 1.5%;
+}
+
+.button-back {
+  transform: scaleX(-1);
+  width: 44%
+}
+
+.link__back {
+  width: 20%;
+  height: 18%;
+}
+
+.div__back {
+  text-align: center;
 }

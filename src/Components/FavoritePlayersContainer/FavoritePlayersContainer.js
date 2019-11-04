@@ -1,6 +1,7 @@
 import React from 'react';
 import FavoriteCard from '../FavoriteCard/FavoriteCard';
 import { connect } from 'react-redux';
+import './FavoritePlayersContainer.scss'
 
 export const FavoritePlayersContainer = ({teamSchedule, getSinglePlayer, favoritePlayers}) => {
   const player = favoritePlayers.map((player) => {

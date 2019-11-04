@@ -68,7 +68,7 @@ import ice from '../../images/ice6.jpg'
 	return (
 		<section className='player'>
       <img class="player__img--ice" src={ice} alt="Ice"></img>
-      <div>
+      <div className="player__row">
         <h2 className="player__h2--name">{playerInfo.fullName}</h2>
         <ul>
       <li>{playerInfo.birthCity}, {playerInfo.birthStateProvince}, {playerInfo.birthCountry}</li>
@@ -80,7 +80,7 @@ import ice from '../../images/ice6.jpg'
       <li>Left/Right - Handed: {playerInfo.shootsCatches}</li>
       </ul>
       </div>
-      <div>
+      <div className="player__row">
         <h4>Current Season Stats</h4>
         <ul>
         <li>Assists: {playerStats.assists}</li>
@@ -96,7 +96,7 @@ import ice from '../../images/ice6.jpg'
         <li>FaceOff Percentage: {playerStats.faceOffPct}</li>
       </ul>
       </div>
-      <div>
+      <div className="player__row">
           <h4>Projected Stats</h4>
         <ul>
       <li>Assists: {playerProjections.assists}</li>
