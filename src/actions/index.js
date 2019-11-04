@@ -33,11 +33,6 @@ export const getPlayerProjections = (player) => ({
   player
 })
 
-export const favoriteTeams = (newTeam) => ({
-  type: 'GET_FAVORITE_TEAMS',
-  newTeam
-})
-
 export const favoritePlayer = (newPlayer) => ({
   type: 'GET_FAVORITE_PLAYERS',
   newPlayer

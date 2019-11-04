@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import './TeamCard.scss';
-import { getTeams, isLoading, hasError, getRoster, getPlayer, getTeamSchedule, favoriteTeams } from '../../actions';
+import { getTeams, isLoading, hasError, getRoster, getPlayer, getTeamSchedule } from '../../actions';
 import { fetchTeams, fetchRoster, fetchPlayer, fetchPlayerStats, fetchTeamSchedule, fetchPlayerProjections } from '../../apiCalls';
 import { Route } from 'react-router-dom';
 
@@ -81,7 +81,6 @@ export const mapDispatchToProps = (dispatch) => (
   bindActionCreators({
     getRoster,
     getTeamSchedule,
-    favoriteTeams
   }, dispatch)
 )
 export default connect(mapStateToProps, mapDispatchToProps)(TeamCard);
