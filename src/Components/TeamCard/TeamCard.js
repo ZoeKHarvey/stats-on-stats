@@ -4,24 +4,24 @@ import TeamRoster from '../RosterCard/RosterCard'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getRoster } from '../../actions';
+import './TeamCard.scss'
 
 export const TeamCard = ({id, name, venue, teamName, firstYearOfPlay, division, conference, franchise, roster, shortName, officialSiteUrl, franchiseId, active, getSingleRoster}) => {
   console.log('get single roster function', getSingleRoster)
 
       return (
         
-         <section className="movie_card"> 
-          <h1>{name}</h1>
-          {/* {venue} */}
-          {teamName}
-          {firstYearOfPlay}
-          {/* {division} */}
-          {/* {conference} */}
-          {/* {franchise} */}
-          {shortName}
+         <section className="team-card"> 
+          <h2>{name}</h2>
+          <h4>HomeTown: {venue.city}</h4>
+          <h4>Founded: {firstYearOfPlay}</h4>
+          <h4>Stadium: {venue.name}</h4>
+          <h4>Division: {division.name}</h4>
+          <h4>Conference: {conference.name}</h4>
+          {/* {shortName} */}
           <a href={officialSiteUrl}>Official Site</a>
-          {franchiseId}
-          {active}
+          {/* {franchiseId} */}
+          {/* {active} */}
           
             <button onClick={(e) => getSingleRoster(e, id)}>Team Roster</button>>
           <Link to='/roster'>

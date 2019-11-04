@@ -6,15 +6,20 @@ import TeamRoster from '../RosterCard/RosterCard'
 
 
 export const TeamContainer = ({teams, roster, getSingleRoster}) => {
-  const singleTeams = teams.map((team) => {
-    return <TeamCard key={team.id}
-                        {...team}
+  const alph = teams.sort((a,b) => {
+   return b.conference.name - a.conference.name
+  })
+  console.log('alphabetized--->', alph)
+  const singleTeams = alph.map((al) => {
+    return <TeamCard key={al.id}
+                        {...al}
                         getSingleRoster={getSingleRoster} 
                          />
 })
 
     return(
       <section className="section-teamcontainer">
+        <h1>Team List</h1>
         {singleTeams}
     
       </section>
@@ -23,6 +28,7 @@ export const TeamContainer = ({teams, roster, getSingleRoster}) => {
 }
 
 export const mapStateToProps = (state) => ({
+
   teams: state.teams
 })
 

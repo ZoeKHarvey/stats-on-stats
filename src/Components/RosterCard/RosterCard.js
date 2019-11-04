@@ -13,6 +13,7 @@ import { connect } from 'react-redux'
     {jerseyNumber}
     {person.fullName}
     {position.type}
+    {position.name}
     <button onClick={(e) => getSinglePlayer(e, person.id)}>ShowPlayer</button>
 		</section>
 
