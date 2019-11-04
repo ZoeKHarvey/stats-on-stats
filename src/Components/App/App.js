@@ -19,10 +19,9 @@ export class App extends Component {
     const { getTeams } = this.props;
     try {
       const teams = await fetchTeams();
-      console.log('teams in app--->', teams)
       getTeams(teams);
     } catch (error) {
-      console.log('error')
+      return 'Error'
     }
   }
 
@@ -32,7 +31,7 @@ export class App extends Component {
       const roster = await fetchRoster(id);
       getRoster(roster)
     } catch(error) {
-      console.log('error')
+      return 'Error'
     }
   }
 
@@ -44,7 +43,7 @@ export class App extends Component {
       const player = await fetchPlayer(id);
       getPlayer(this.cleanUpPlayer(player))
     } catch(error) {
-      console.log('error')
+      return 'Error'
     }
   }
 
@@ -54,7 +53,7 @@ export class App extends Component {
       const player = await fetchPlayerStats(id);
       getPlayerStats(this.cleanUpPlayerStats(player))
     } catch(error) {
-      console.log('error')
+      return 'Error'
     }
   }
 

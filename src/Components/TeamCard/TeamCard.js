@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 import './TeamCard.scss';
 import { getTeamSchedule } from '../../actions';
 import { fetchRoster, fetchTeamSchedule } from '../../apiCalls';
+import PropTypes from 'prop-types';
 
 export class TeamCard extends Component {
 
@@ -15,8 +16,8 @@ export class TeamCard extends Component {
       getRoster(roster)
     } catch(error) {
       return 'Roster Not Available'
-    }
-  }
+    };
+  };
 
   getSingleTeamSchedule = async(id) => {
     const { getTeamSchedule } = this.props;
@@ -25,8 +26,8 @@ export class TeamCard extends Component {
       getTeamSchedule(this.cleanUpSchedule(schedule))
     } catch(error) {
       return 'No Games Today'
-    }
-  }
+    };
+  };
 
   cleanUpSchedule = (schedule) => {
     return {
@@ -40,14 +41,14 @@ export class TeamCard extends Component {
         homeWins: schedule.teams.home.leagueRecord.wins,
         homeLosses: schedule.teams.home.leagueRecord.losses,
         homeOT: schedule.teams.home.leagueRecord.ot
-    }
-  }
-}
+      }
+    };
+  };
 
   handleDetails = (e, id) => {
     this.getSingleRoster(id)
     this.getSingleTeamSchedule(id)
-  }
+  };
 
   render() {
     const {id, name, venue, firstYearOfPlay, division, conference, officialSiteUrl } = this.props;
@@ -64,19 +65,28 @@ export class TeamCard extends Component {
             <button className="teamcard__button--details" onMouseEnter={(e) => this.handleDetails(e, id)}>Show Details</button>
           </Link>
         </section>
-      )
-}   }
+      );
+  }; 
+};
 
 
 export const mapStateToProps = (state) => ({
   teams: state.teams,
   errorMsg: state.errorMsg,
   teamSchedule: state.teamSchedule
-})
+});
 
 export const mapDispatchToProps = (dispatch) => (
   bindActionCreators({
     getTeamSchedule,
   }, dispatch)
-)
+);
+
 export default connect(mapStateToProps, mapDispatchToProps)(TeamCard);
+
+TeamCard.propTypes = {
+  teams: PropTypes.array,
+  errorMsg: PropTypes.string,
+  teamSchedule: PropTypes.object,
+  getTeamSchedule: PropTypes.func
+};

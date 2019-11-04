@@ -24,16 +24,13 @@ export const fetchPlayerStats = async(id, year = 20192020) => {
 }
 
 export const fetchTeamSchedule = async(id) => {
-  console.log('in the fetch', id)
   const response = await fetch(`https://statsapi.web.nhl.com/api/v1/schedule?teamId=${id}`)
   const data = await response.json();
-  console.log(data.dates[0].games[0])
   return data.dates[0].games[0]
 }
 
 export const fetchPlayerProjections = async(id) => {
   const response = await fetch(`https://statsapi.web.nhl.com/api/v1/people/${id}/stats?stats=onPaceRegularSeason&season=20192020`)
   const data = await response.json();
-  console.log(data.stats[0].splits[0].stat)
   return data.stats[0].splits[0]
 }

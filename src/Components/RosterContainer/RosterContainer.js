@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import RosterCard from '../RosterCard/RosterCard'
 import './RosterContainer.scss';
+import PropTypes from 'prop-types';
 
 export const RosterContainer = ({roster, getSinglePlayer, teamSchedule}) => {
   const singleRoster = roster.map((roster) => {
@@ -54,3 +55,8 @@ export const mapStateToProps = (state) => ({
 
 export default connect(mapStateToProps)(RosterContainer);
 
+RosterContainer.propTypes = {
+  teams: PropTypes.array,
+  roster: PropTypes.object,
+  teamSchedule: PropTypes.object
+}

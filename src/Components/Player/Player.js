@@ -4,7 +4,8 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { fetchPlayerStats, fetchPlayerProjections } from '../../apiCalls';
 import './Player.scss';
-import ice from '../../images/ice6.jpg'
+import ice from '../../images/ice6.jpg';
+import PropTypes from 'prop-types';
 
  export class Player extends Component {
 
@@ -13,17 +14,15 @@ import ice from '../../images/ice6.jpg'
     try {
       const stat = await fetchPlayerStats(playerInfo.id);
       const projections = await fetchPlayerProjections(playerInfo.id)
-      console.log(projections)
       getPlayerStats(this.organizeStats(stat))
       getPlayerProjections(this.organizeProjections(projections.stat))
       
     } catch (error) {
-      console.log('error')
+      return 'Error'
     }
   }
 
   organizeProjections = (projections) => {
-    console.log('projections! -->', projections)
     return {
       assists: projections.assists,
       games: projections.games,
@@ -131,3 +130,12 @@ export const mapDispatchToProps = (dispatch) => (
 )
 
 export default connect(mapStateToProps, mapDispatchToProps)(Player);
+
+Player.propTypes = {
+  playerStats: PropTypes.object,
+  playerInfo: PropTypes.object,
+  playerProjections: PropTypes.object,
+  getPlayerStats: PropTypes.func,
+  getPlayerProjections: PropTypes.func,
+  favoritePlayer: PropTypes.func
+}

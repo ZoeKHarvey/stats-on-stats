@@ -6,7 +6,6 @@ import PropTypes from 'prop-types'
 
 export const FavoritePlayersContainer = ({teamSchedule, getSinglePlayer, favoritePlayers}) => {
   const player = favoritePlayers.map((player) => {
-    console.log('player in fave container --->', player)
     return <FavoriteCard key={Date.now()}
                         {...player}
                         getSinglePlayer = { getSinglePlayer } 
@@ -32,5 +31,6 @@ export default connect(mapStateToProps)(FavoritePlayersContainer)
 
 FavoriteCard.propTypes = {
   roster: PropTypes.object,
-  
+  teamSchedule: PropTypes.object,
+  favoritePlayers: PropTypes.array
 }
