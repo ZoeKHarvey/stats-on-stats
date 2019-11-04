@@ -5,17 +5,15 @@ import { connect } from 'react-redux'
 
 
  export const RosterCard = ({  jerseyNumber, person, position, getSinglePlayer }) => {
- 
+  
 	return (
 		<section className='roster-card'>
-      <Link to='/player'>
-      <button>Show Details</button>
-      </Link>
-    {jerseyNumber}
-    {person.fullName}
-    {position.type}
-    {position.name}
+    <p className="roster__p--name">{person.fullName}</p>
+    <p className="roster__p--number">{jerseyNumber}</p>
+    <p className="roster__p--pname">{position.name}</p>
+    <Link to='/player'>
     <button onClick={(e) => getSinglePlayer(e, person.id)}>ShowPlayer</button>
+    </Link>
 		</section>
 
 	)

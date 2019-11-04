@@ -1,5 +1,6 @@
 import {
-  fetchTeams
+  fetchTeams,
+  fetchRoster
 } from './apiCalls';
 
 describe('getTeams', () => {
@@ -21,8 +22,8 @@ describe('getTeams', () => {
 
   it('should return an array of players', () => {
     expect(fetchTeams()).resolves.toEqual(mockResponse)
-  })
-})
+  });
+});
 
 describe('fetchRoster', () => {
   const mockResponse = [{}, {}, {}];
@@ -34,7 +35,9 @@ describe('fetchRoster', () => {
       return Promise.resolve({
         ok: true,
         json: () => Promise.resolve(mockResponse)
-      })
-    })
-  })
-})
+      });
+    });
+    fetchRoster();
+    expect(window.fetch).toHaveBeenCalledWith(url)
+  });
+});

@@ -9,12 +9,6 @@ import './Player.scss';
 import ice from '../../images/ice6.jpg'
 
  export class Player extends Component {
-   constructor() {
-     super();
-     this.state = {
-       isFavorite: false
-     }
-   }
 
   componentDidMount = async () => {
     const { playerInfo, getPlayerStats, getPlayerProjections } = this.props;
@@ -63,20 +57,6 @@ import ice from '../../images/ice6.jpg'
     }
   }
 
-  toggleFave = () => {
-    console.log('in favorites')
-   if(this.isFavorite === true) {
-     this.setState({
-       isFavorite: false
-     })
-   } 
-   if(!this.isFavorite) {
-     this.setState({
-       isFavorite: true
-     })
-   }console.log(this.state)
-  }
-
   favoriteAPlayer = (e, id) => {
     e.preventDefault();
     const { favoritePlayer } = this.props;
@@ -90,9 +70,7 @@ import ice from '../../images/ice6.jpg'
       <img class="player__img--ice" src={ice} alt="Ice"></img>
       <div>
         <h2 className="player__h2--name">{playerInfo.fullName}</h2>
-        <h2 onClick={this.toggleFave}>Favorite</h2>
         <ul>
-      {/* <li>{playerInfo.active}</li> */}
       <li>{playerInfo.birthCity}, {playerInfo.birthStateProvince}, {playerInfo.birthCountry}</li>
       <li>{playerInfo.captain}</li>
       <li className={`${this.isFavorite ? 'card__player--active' : 'h2__butt'}`}>Age: {playerInfo.currentAge}</li>
@@ -134,14 +112,13 @@ import ice from '../../images/ice6.jpg'
       <li>FaceOff Percentage: {playerProjections.faceOffPct}</li>
       </ul>
       </div>
-      <button onClick={(e) => this.favoriteAPlayer(e, playerInfo)}>Favorite</button>
+      <button className="player__button--fave" onClick={(e) => this.favoriteAPlayer(e, playerInfo)}>Favorite</button>
 		</section>
 
 	)}
 }
 
 export const mapStateToProps = (state) => ({
-  // teams:state.teams,
   playerStats: state.playerStats,
   playerInfo:state.playerInfo,
   playerProjections:state.playerProjections

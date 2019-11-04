@@ -36,4 +36,3 @@ describe('mockStateToProps', () => {
   })
 })
 
-//Add in a test for the sort method?

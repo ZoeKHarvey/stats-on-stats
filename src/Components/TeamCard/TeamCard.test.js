@@ -75,5 +75,4 @@ describe('mockStateToProps', () => {
     expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
   });
 
-  //Add get favorite teams test when that's a thing
 })
