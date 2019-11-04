@@ -13,6 +13,9 @@ const  WelcomePage = () => {
         <Link to='/teams'> 
           <h3>Teams</h3>
         </Link>
+        <Link to='/standings'>
+          <h3>Standings</h3>
+        </Link>
       </section>
     )
   }

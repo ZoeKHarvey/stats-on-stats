@@ -1,19 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import TeamRoster from '../TeamRoster/TeamRoster'
-import { connect } from 'react-redux'
+import TeamRoster from '../RosterCard/RosterCard'
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { getRoster } from '../../actions';
 
-export const TeamCard = ({id, name, venue, teamName, firstYearOfPlay, division, conference, franchise, roster, shortName, officialSiteUrl, franchiseId, active}) => {
-  console.log('roster!--->', roster.roster)
-
-  const singleRosters = roster.roster.map((rost) => {
-    // return rost.roster.map((r) => {
-      return <TeamRoster {...rost}
-      />
-    // })
-  })
+export const TeamCard = ({id, name, venue, teamName, firstYearOfPlay, division, conference, franchise, roster, shortName, officialSiteUrl, franchiseId, active, getSingleRoster}) => {
+  console.log('get single roster function', getSingleRoster)
 
       return (
+        
          <section className="movie_card"> 
           <h1>{name}</h1>
           {/* {venue} */}
@@ -27,9 +23,9 @@ export const TeamCard = ({id, name, venue, teamName, firstYearOfPlay, division, 
           {franchiseId}
           {active}
           
+            <button onClick={(e) => getSingleRoster(e, id)}>Team Roster</button>>
           <Link to='/roster'>
-            <h1>Team Roster</h1>
-            {singleRosters}
+            <h1>rosterrrr</h1>
           </Link>
 
           
@@ -42,4 +38,12 @@ export const mapStateToProps = (state) => ({
   errorMsg: state.errorMsg
 })
 
+export const mapDispatchToProps = (dispatch) => (
+  bindActionCreators({
+    // getTeams,
+    // hasError,
+    // isLoading,
+    getRoster
+  }, dispatch)
+)
 export default connect(mapStateToProps)(TeamCard);
