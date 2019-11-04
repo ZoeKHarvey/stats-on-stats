@@ -86,4 +86,5 @@ describe('actions', () => {
       };
       const result = actions.hasError(errorMsg);
       expect(result).toEqual(expectedAction)
-    });
+    })
+  })

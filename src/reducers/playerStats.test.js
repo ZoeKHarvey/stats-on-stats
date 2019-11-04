@@ -13,7 +13,7 @@ describe('playerStats', () => {
     const initialState = {};
     const action = {
       type: 'GET_PLAYER_STATS',
-      playerStats: {1: 1}
+      player: {1: 1}
     };
 
     const result = {1: 1};

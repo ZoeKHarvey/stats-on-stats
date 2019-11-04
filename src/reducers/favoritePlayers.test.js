@@ -16,7 +16,7 @@ describe('favoritePlayers', () => {
       newPlayer: {name: 'dog', age: 98}
     };
 
-    const result = {name: 'dog', age: 98};
+    const result = [{name: 'dog', age: 98}];
 
     expect(favoritePlayers(initialState, action)).toEqual(result)
   });
