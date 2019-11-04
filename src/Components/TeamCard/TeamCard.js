@@ -4,13 +4,17 @@ import TeamRoster from '../RosterCard/RosterCard'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import './TeamCard.scss';
-import { getTeams, isLoading, hasError, getRoster, getPlayer, getTeamSchedule } from '../../actions';
+import { getTeams, isLoading, hasError, getRoster, getPlayer, getTeamSchedule, favoriteTeams } from '../../actions';
 import { fetchTeams, fetchRoster, fetchPlayer, fetchPlayerStats, fetchTeamSchedule, fetchPlayerProjections } from '../../apiCalls';
 import { Route } from 'react-router-dom';
 
-
-
 export class TeamCard extends Component {
+  constructor() {
+    super();
+    this.state = {
+      isFavorited: this.isFavorited
+    }
+  }
 
   getSingleRoster = async(e, id) =>{
     e.preventDefault()
@@ -25,7 +29,7 @@ export class TeamCard extends Component {
 
   getSingleTeamSchedule = async(e, id) => {
     e.preventDefault();
-    const { getTeamSchedule }= this.props;
+    const { getTeamSchedule } = this.props;
     try {
       const schedule = await fetchTeamSchedule(id);
       console.log('schedule in function', schedule)
@@ -33,6 +37,13 @@ export class TeamCard extends Component {
     } catch(error) {
       console.log('error')
     }
+  }
+
+  favoriteTeam = (e, id) => {
+    console.log('prrproproprpssss', this.props)
+    e.preventDefault()
+    const { favoriteTeams } = this.props
+    favoriteTeams(id)
   }
 
   cleanUpSchedule = (schedule) => {
@@ -51,16 +62,17 @@ export class TeamCard extends Component {
   }
 }
 
-  handler = (e, id) => {
+  handleDetails = (e, id) => {
     this.getSingleRoster(e, id)
     this.getSingleTeamSchedule(e, id)
+    this.favoriteTeam(e, id)
   }
 
   render() {
     const {id, name, venue, firstYearOfPlay, division, conference, officialSiteUrl } = this.props
       return (
         
-         <section className="team-card"> 
+         <section className="team-card" > 
           <h2>{name}</h2>
           <h4>HomeTown: {venue.city}</h4>
           <h4>Founded: {firstYearOfPlay}</h4>
@@ -72,9 +84,10 @@ export class TeamCard extends Component {
           {/* {franchiseId} */}
           {/* {active} */}
           <Link to='/roster'>
-            <button onClick={(e) => this.handler(e, id)}>Show Details</button>
+            <button onClick={(e) => this.handleDetails(e, id)}>Show Details</button>
           </Link>
             {/* <h1>rosterrrr</h1> */}
+            <button onClick={this.favoriteTeams}>Favorite</button>
 
           
         </section>
@@ -93,7 +106,8 @@ export const mapDispatchToProps = (dispatch) => (
     // hasError,
     // isLoading,
     getRoster,
-    getTeamSchedule
+    getTeamSchedule,
+    favoriteTeams
   }, dispatch)
 )
 export default connect(mapStateToProps, mapDispatchToProps)(TeamCard);

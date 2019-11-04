@@ -11,7 +11,8 @@ import NavLogos from '../NavLogos/NavLogos'
 import RosterContainer from '../RosterContainer/RosterContainer';
 import StandingsContainer from  '../StandingsContainer/StandingsContainer';
 import Player from '../Player/Player';
-import Footer from '../Footer/Footer'
+import Footer from '../Footer/Footer';
+import FavoritePlayersContainer from '../FavoritePlayersContainer/FavoritePlayersContainer'
 
 
 export class App extends Component {
@@ -143,6 +144,8 @@ export class App extends Component {
           <Player />
           {/* <NavLogos getSingleRoster={this.getSingleRoster}/> */}
           </>} />
+        <Route exact path='/favorites' render={() => 
+          <FavoritePlayersContainer />}/>
 
         <Footer />
       </section>

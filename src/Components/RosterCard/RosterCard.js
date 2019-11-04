@@ -3,8 +3,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux'
 
- export const TeamRoster = ({  jerseyNumber, person, position, getSinglePlayer }) => {
 
+ export const RosterCard = ({  jerseyNumber, person, position, getSinglePlayer }) => {
+ 
 	return (
 		<section className='roster-card'>
       <Link to='/player'>
@@ -22,7 +23,7 @@ import { connect } from 'react-redux'
 
 export const mapStateToProps = (state) => ({
   teams:state.teams,
-  teamSchedule: state.teamSchedule
+  // teamSchedule: state.teamSchedule
 })
 
-export default connect(mapStateToProps)(TeamRoster);
+export default connect(mapStateToProps)(RosterCard);

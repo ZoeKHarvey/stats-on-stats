@@ -12,7 +12,7 @@ import ice from '../../images/ice2.jpg';
 import NavLogos from '../NavLogos/NavLogos'
 
 
-const  Footer = () => {
+export const  Footer = () => {
 
     return(
       <section className="section-footer">
@@ -20,8 +20,8 @@ const  Footer = () => {
 <Link to='/teams'className="footer__a--link"> 
   <h3>Teams</h3>
 </Link>
-<Link to='/standings' className="footer__a--link">
-  <h3>Standings</h3>
+<Link to='/favorites' className="footer__a--link">
+  <h3>Favorite Players</h3>
 </Link>
 </div>
       </section>
