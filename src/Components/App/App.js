@@ -40,7 +40,6 @@ export class App extends Component {
   // }
 
   getSinglePlayer = async(e, id) => {
-    e.preventDefault();
     this.getSinglePlayerStats(e, id)
     const { getPlayer } = this.props;
     try {
@@ -52,7 +51,6 @@ export class App extends Component {
   }
 
   getSinglePlayerStats = async(e, id) => {
-    e.preventDefault();
     const { getPlayerStats } = this.props;
     try {
       const player = await fetchPlayerStats(id);
