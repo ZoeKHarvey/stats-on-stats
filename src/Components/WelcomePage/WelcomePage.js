@@ -12,7 +12,7 @@ import ice from '../../images/ice2.jpg';
 import NavLogos from '../NavLogos/NavLogos'
 
 
-const  WelcomePage = ({getSingleRoster}) => {
+export const WelcomePage = ({getSingleRoster}) => {
 
     return(
       <section className="section-welcome">
@@ -23,19 +23,5 @@ const  WelcomePage = ({getSingleRoster}) => {
       </section>
     )
   }
-
-
-// export const mapStateToProps = (state) => ({
-//   teams: state.teams,
-//   errorMsg: state.errorMsg,
-// });
-
-// export const mapDispatchToProps = (dispatch) => (
-//   bindActionCreators({
-//     getTeams,
-//     hasError,
-//     isLoading
-//   }, dispatch)
-// )
 
 export default WelcomePage

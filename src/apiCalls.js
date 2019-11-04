@@ -12,7 +12,7 @@ export const fetchRoster = async(id) => {
 }
 
 export const fetchPlayer = async(id) => {
-  const response = await fetch(`https://statsapi.web.nhl.com/api/v1/people/${id} `)
+  const response = await fetch(`https://statsapi.web.nhl.com/api/v1/people/${id}`)
   const data = await response.json();
   return data.people[0]
 }
