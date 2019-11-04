@@ -5,15 +5,6 @@ import { getRoster, getTeamSchedule } from '../../actions/index';
 
 describe('TeamCard', () => {
   let wrapper;
-  let getSingleRoster = jest.fn();
-  let getSingleTeamSchedule = jest.fn();
-  let favoriteTeam = jest.fn();
-  let cleanUpSchedule = jest.fn();
-  let handleDetails = jest.fn();
-
-  let mockPlayer = {
-    id: 2
-  }
 
   let venue = {
     city: 'Philly',

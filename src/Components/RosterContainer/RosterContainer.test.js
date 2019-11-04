@@ -1,5 +1,5 @@
 import React from 'react';
-import { RosterContainer, mapStateToProps, mapDispatchToProps } from './RosterContainer';
+import { RosterContainer, mapStateToProps } from './RosterContainer';
 import { shallow } from 'enzyme';
 
 describe('RosterContainer', () => {

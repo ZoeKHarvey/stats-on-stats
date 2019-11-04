@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
-import TeamCard from '../TeamCard/TeamCard'
+import React from 'react';
+import TeamCard from '../TeamCard/TeamCard';
 import { connect } from 'react-redux';
-import TeamRoster from '../RosterCard/RosterCard';
 import './TeamContainer.scss'
 
-export const TeamContainer = ({teams, roster, getSingleRoster, getSingleTeamSchedule, handlelinkclicks}) => {
+export const TeamContainer = ({teams, getSingleRoster, getSingleTeamSchedule, handlelinkclicks}) => {
   const alph = teams.sort((a,b) => {
    return a.division.id - b.division.id
   })
@@ -16,14 +15,14 @@ export const TeamContainer = ({teams, roster, getSingleRoster, getSingleTeamSche
                         getSingleTeamSchedule={getSingleTeamSchedule}
                         handlelinkclicks={handlelinkclicks}
                          />
-})
+  })
 
-    return(
-      <section className="section-teamcontainer">
-        {singleTeams}
-      </section>
+  return(
+    <section className="section-teamcontainer">
+      {singleTeams}
+    </section>
     )
-}
+  }
 
 export const mapStateToProps = (state) => ({
   teams: state.teams

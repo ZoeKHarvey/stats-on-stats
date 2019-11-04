@@ -1,7 +1,8 @@
 import React from 'react';
 import FavoriteCard from '../FavoriteCard/FavoriteCard';
 import { connect } from 'react-redux';
-import './FavoritePlayersContainer.scss'
+import './FavoritePlayersContainer.scss';
+import PropTypes from 'prop-types'
 
 export const FavoritePlayersContainer = ({teamSchedule, getSinglePlayer, favoritePlayers}) => {
   const player = favoritePlayers.map((player) => {
@@ -28,3 +29,8 @@ export const mapStateToProps = (state) => ({
 })
 
 export default connect(mapStateToProps)(FavoritePlayersContainer)
+
+FavoriteCard.propTypes = {
+  roster: PropTypes.object,
+  
+}

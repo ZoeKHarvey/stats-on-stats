@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import './NavLogos.scss'
-// import { connect } from 'react-redux';
 import flyers from '../../images/flyers.png';
 import blues from '../../images/blues.png';
 import bruins from '../../images/bruins.png';
@@ -40,7 +39,6 @@ return(
   <nav>
     <Link to='/roster'>
     <div className="nav__div">
-    {/* </div> */}
     <div className="nav__original-six nav">
     <img onClick={getSingleRoster(6)} className="nav__img--logo" src={bruins} alt="flyers logo link to team page"/>
     <img onClick={getSingleRoster(3)} className="nav__img--logo" src={rangers} alt="flyers logo link to team page"/>
@@ -89,8 +87,8 @@ return(
     </div>
     </Link>
   </nav>
-)
-
-}
+)}
 
 export default NavLogo
+
+

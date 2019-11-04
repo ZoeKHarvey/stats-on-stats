@@ -1,7 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme'
-import { WelcomePage, mapStateToProps } from './WelcomePage';
-import { getPlayerStats, getPlayerProjections, favoritePlayer } from '../../actions/index';
+import { WelcomePage } from './WelcomePage';
 
 describe('WelcomePage', () => {
   let wrapper;

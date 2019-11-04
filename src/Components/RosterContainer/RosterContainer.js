@@ -1,6 +1,4 @@
-import React, { Component } from 'react';
-import TeamCard from '../TeamCard/TeamCard';
-import { Link } from 'react-router-dom';
+import React from 'react';
 import { connect } from 'react-redux';
 import RosterCard from '../RosterCard/RosterCard'
 import './RosterContainer.scss';
@@ -55,3 +53,4 @@ export const mapStateToProps = (state) => ({
 })
 
 export default connect(mapStateToProps)(RosterContainer);
+

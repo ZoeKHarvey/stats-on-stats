@@ -1,23 +1,22 @@
 import React from 'react';
 import { shallow } from 'enzyme'
-import { Player, mapStateToProps, mapDispatchToProps } from './Player';
-import { getPlayerStats, getPlayerProjections, favoritePlayer } from '../../actions/index';
+import { Player, mapStateToProps } from './Player';
 
 describe('Player', () => {
   let wrapper;
 
   let playerInfo = {
     fullName: 'Vito Burrito',
-  }
+  };
 
   let playerStats = {
     assists: 100,
     goals: 90
-  }
+  };
 
   let playerProjections = {
     assists: 200
-  }
+  };
 
   beforeEach(() => {
     wrapper = shallow(
@@ -51,6 +50,4 @@ describe('mockStateToProps', () => {
 
   });
 
-  const mockDispatch = jest.fn();
-
-})
+});

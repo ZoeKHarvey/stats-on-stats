@@ -1,22 +1,22 @@
 import { getTeams, isLoading, hasError, getRoster, getPlayer, getTeamSchedule } from '../../actions';
 import { bindActionCreators } from 'redux';
-import { fetchTeams, fetchRoster, fetchPlayer, fetchPlayerStats, fetchTeamSchedule, fetchPlayerProjections } from '../../apiCalls';
+import { fetchTeams, fetchRoster, fetchPlayer, fetchPlayerStats } from '../../apiCalls';
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import './App.css';
 import TeamContainer from '../TeamContainer/TeamContainer';
 import { Route } from 'react-router-dom';
 import WelcomePage from '../WelcomePage/WelcomePage'
-import NavLogos from '../NavLogos/NavLogos'
 import RosterContainer from '../RosterContainer/RosterContainer';
 import Player from '../Player/Player';
 import Footer from '../Footer/Footer';
-import FavoritePlayersContainer from '../FavoritePlayersContainer/FavoritePlayersContainer'
+import FavoritePlayersContainer from '../FavoritePlayersContainer/FavoritePlayersContainer';
+import PropTypes from 'prop-types';
 
 
 export class App extends Component {
   componentDidMount = async () => {
-    const { getTeams, hasError, isLoading } = this.props;
+    const { getTeams } = this.props;
     try {
       const teams = await fetchTeams();
       console.log('teams in app--->', teams)
@@ -137,3 +137,14 @@ export const mapDispatchToProps = (dispatch) => (
 )
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)
+
+App.propTypes = {
+  teams: PropTypes.array,
+  errorMsg: PropTypes.string,
+  getTeams: PropTypes.func,
+  hasError: PropTypes.func,
+  isLoading: PropTypes.func,
+  getRoster: PropTypes.func,
+  getPlayer: PropTypes.func,
+  getTeamSchedule: PropTypes.func,
+}

@@ -3,9 +3,8 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import './TeamCard.scss';
-import { getTeams, isLoading, hasError, getRoster, getPlayer, getTeamSchedule } from '../../actions';
-import { fetchTeams, fetchRoster, fetchPlayer, fetchPlayerStats, fetchTeamSchedule, fetchPlayerProjections } from '../../apiCalls';
-import { Route } from 'react-router-dom';
+import { getTeamSchedule } from '../../actions';
+import { fetchRoster, fetchTeamSchedule } from '../../apiCalls';
 
 export class TeamCard extends Component {
 
@@ -48,12 +47,10 @@ export class TeamCard extends Component {
   handleDetails = (e, id) => {
     this.getSingleRoster(id)
     this.getSingleTeamSchedule(id)
-    // this.favoriteTeam(e, id)
   }
 
   render() {
     const {id, name, venue, firstYearOfPlay, division, conference, officialSiteUrl } = this.props;
-    // const teamSchedError = teamSchedule || 'No Games Today'
       return (
          <section className="team-card" > 
           <h2>{name}</h2>
@@ -79,7 +76,6 @@ export const mapStateToProps = (state) => ({
 
 export const mapDispatchToProps = (dispatch) => (
   bindActionCreators({
-    getRoster,
     getTeamSchedule,
   }, dispatch)
 )
