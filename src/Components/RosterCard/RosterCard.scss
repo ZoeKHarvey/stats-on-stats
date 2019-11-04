@@ -1,3 +1,45 @@
 .roster__div--schedule {
   display: flex;
 }
+
+.roster-card {
+  &:hover {
+    background-color: white;
+  }
+  display: flex;
+    flex-direction: column;
+    width: 11%;
+    text-align: center;
+    border: 1px solid;
+    border-radius: 35px;
+    font-family: "Barlow Condensed", sans-serif;
+    margin-left: 1%;
+}
+
+.roster__p--number {
+  font-size: 2em;
+  margin-bottom: 3%;
+  margin-top: 0;
+}
+
+.roster__p--name {
+  font-weight: bold;
+  font-size: 1.3em;
+  margin-bottom: 0;
+}
+
+.roster__p--pname {
+  margin-top: 0;
+  margin-bottom: 3%;
+}
+
+.player__button {
+  &:hover {
+    transform: scale(1.1);
+    font-weight: bold;
+    border: 1px solid black;
+  }
+  height: 3vh;
+  border-radius: 17px;
+  font-family: 'Barlow Condensed', sans-serif;
+}

@@ -2,4 +2,53 @@
   background-image: url('../../images/ice5.jpg');
   background-size: cover;
   height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: scroll;
+  font-family: 'Barlow Condensed', sans-serif;
+}
+
+.roster__h3--away,
+.roster__h3--home {
+  font-weight: 800;
+  font-size: 1.2em;
+}
+
+.roster__container--game {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  text-align: center;
+}
+
+.roster__div--schedule {
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid black;
+  padding-bottom: 2%;
+}
+
+.roster--h2--game {
+  margin-left:auto;
+  margin-right: auto;
+}
+
+.roster__h1--roster {
+  border-bottom: 1px solid black;
+  width: 100%;
+  padding-bottom: 1.5%;
+}
+
+.button-back {
+  transform: scaleX(-1);
+  width: 44%
+}
+
+.link__back {
+  width: 20%;
+  height: 18%;
+}
+
+.div__back {
+  text-align: center;
 }

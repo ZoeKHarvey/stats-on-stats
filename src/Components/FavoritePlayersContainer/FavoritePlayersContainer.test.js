@@ -1,25 +1,15 @@
 import React from 'react';
-import { RosterContainer, mapStateToProps } from './RosterContainer';
+import { FavoritePlayersContainer, mapStateToProps } from './FavoritePlayersContainer';
 import { shallow } from 'enzyme';
 
-describe('RosterContainer', () => {
+describe('FavoitePlayersContainer', () => {
   let wrapper;
-
-  let roster = [{
-    jerseyNumber: 1,
-    name: 'Veet',
-  }];
-
-  let teamSchedule = {
-    home: 'Doggos',
-    away: 'Cattans'
-  };
+  let favoritePlayers = [{name: 'name'}]
 
   beforeEach(() => {
     wrapper = shallow(
-      <RosterContainer
-        roster={roster}
-        teamSchedule={teamSchedule} />
+      <FavoritePlayersContainer 
+         favoritePlayers={favoritePlayers}/>
     );
   });
 
@@ -32,11 +22,13 @@ describe('mockStateToProps', () => {
   it('should return an object with the roster data array', () => {
     const mockState = {
       roster: [{jerseyNumber: 1}, {jerseyNumber: 2}],
-      teamSchedule: {home: 'here', away: 'there'}
+      teamSchedule: {home: 'here', away: 'there'},
+      favoritePlayers: {name: 'pants'}
     };
     const expected = {
       roster: [{jerseyNumber: 1}, {jerseyNumber: 2}],
-      teamSchedule: {home: 'here', away: 'there'}
+      teamSchedule: {home: 'here', away: 'there'},
+      favoritePlayers: {name: 'pants'}
     };
     const mappedProps = mapStateToProps(mockState);
 

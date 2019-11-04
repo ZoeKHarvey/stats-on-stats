@@ -13,7 +13,7 @@ describe('favoritePlayers', () => {
     const initialState = [];
     const action = {
       type: 'GET_FAVORITE_PLAYERS',
-      favoritePlayers: [{name: 'dog', age: 98}]
+      newPlayer: {name: 'dog', age: 98}
     };
 
     const result = [{name: 'dog', age: 98}];

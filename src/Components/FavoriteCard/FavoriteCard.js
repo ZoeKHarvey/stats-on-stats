@@ -1,15 +1,13 @@
 import React from 'react';
-
-import { connect } from 'react-redux';
+import './FavoriteCard.scss';
 
 export const FavoriteCard = ({fullName}) => {
-  console.log('player in fave card-->', fullName)
   return(
     <section>
-    <h1>Favorite Player</h1>
-    {fullName}
+    <li>{fullName}</li>
     </section>
-  )
-}
+  );
+};
 
-export default FavoriteCard
+export default FavoriteCard;
+

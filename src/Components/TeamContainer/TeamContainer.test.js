@@ -1,5 +1,5 @@
 import React from 'react';
-import { TeamContainer, mapStateToProps, mapDispatchToProps } from './TeamContainer';
+import { TeamContainer, mapStateToProps } from './TeamContainer';
 import { shallow } from 'enzyme';
 
 describe('TeamContainer', () => {
@@ -36,4 +36,3 @@ describe('mockStateToProps', () => {
   })
 })
 
-//Add in a test for the sort method?

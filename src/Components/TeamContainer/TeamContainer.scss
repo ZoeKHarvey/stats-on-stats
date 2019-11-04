@@ -1,9 +1,8 @@
 .section-teamcontainer {
   background-image: url('../../images/ice4.jpg');
-  height: 280vh;
+  height: 90vh;
   display: flex;
-  flex-direction: column-reverse;
   flex-wrap: wrap;
   overflow-x: scroll;
-  background-size: contain;
+  background-size: cover;
 }

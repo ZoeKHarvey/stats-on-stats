@@ -1,15 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { TeamCard, mapStateToProps, mapDispatchToProps } from './TeamCard';
-import { getRoster, getTeamSchedule, favoriteTeams} from '../../actions/index';
+import { getRoster, getTeamSchedule } from '../../actions/index';
 
 describe('TeamCard', () => {
   let wrapper;
-  let getSingleRoster = jest.fn();
-  let getSingleTeamSchedule = jest.fn();
-  let favoriteTeam = jest.fn();
-  let cleanUpSchedule = jest.fn();
-  let handleDetails = jest.fn();
 
   let venue = {
     city: 'Philly',
@@ -75,5 +70,4 @@ describe('mockStateToProps', () => {
     expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
   });
 
-  //Add get favorite teams test when that's a thing
 })

@@ -1,17 +1,35 @@
 .team-card {
-  border: 2px solid red;
+  &:hover {
+    background-color: rgba(255,255,255, 0.7);
+  }
+  font-family: 'Barlow Condensed', sans-serif;
   width: 20%;
   display: flex;
   margin-right: 3%;
   margin-top: 1%;
   flex-direction: column;
-  height: 32vh;
+  height: 41vh;
   background: rgba(white, .2);
   border: 2px solid rgba(white, .7);
   justify-content: center;
   text-align: center;
 }
 
+
+
 h4 {
-  margin: 0px;
+  margin: 3% 0% 0% 0% ;
+  border-bottom: 1px solid white;
+}
+
+.teamcard__button--details {
+  &:hover{
+    transform: scale(1.6)
+  }
+  font-family: 'Barlow Condensed', sans-serif;
+  height: 4vh;
+  border-radius: 20px;
+  margin-top: 6%;
+  width: 40%;
+  font-size: 1em;
 }

@@ -1,17 +1,14 @@
-import React, { Component } from 'react';
-import TeamCard from '../TeamCard/TeamCard'
+import React from 'react';
+import TeamCard from '../TeamCard/TeamCard';
 import { connect } from 'react-redux';
-import TeamRoster from '../RosterCard/RosterCard';
-// import ice from '../../images/ice4'
-import './TeamContainer.scss'
+import './TeamContainer.scss';
+import PropTypes from 'prop-types';
 
-
-
-export const TeamContainer = ({teams, roster, getSingleRoster, getSingleTeamSchedule, handlelinkclicks}) => {
+export const TeamContainer = ({teams, getSingleRoster, getSingleTeamSchedule, handlelinkclicks}) => {
   const alph = teams.sort((a,b) => {
    return a.division.id - b.division.id
-  })
-  console.log('alphabetized--->', alph)
+  });
+
   const singleTeams = alph.map((al) => {
     return <TeamCard key={al.id}
                         {...al}
@@ -19,21 +16,21 @@ export const TeamContainer = ({teams, roster, getSingleRoster, getSingleTeamSche
                         getSingleTeamSchedule={getSingleTeamSchedule}
                         handlelinkclicks={handlelinkclicks}
                          />
-})
+  });
 
-    return(
-      <section className="section-teamcontainer">
-        
-        {singleTeams}
-        <h1>Team List</h1>
-    
-      </section>
-    )
-
-}
+  return(
+    <section className="section-teamcontainer">
+      {singleTeams}
+    </section>
+    );
+  };
 
 export const mapStateToProps = (state) => ({
   teams: state.teams
-})
+});
 
 export default connect(mapStateToProps)(TeamContainer);
+
+TeamContainer.propTypes = {
+  teams: PropTypes.array
+};

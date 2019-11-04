@@ -1,37 +1,28 @@
 import { getPlayerStats, getPlayerProjections, favoritePlayer } from '../../actions';
 import React, {Component} from 'react';
 import { bindActionCreators } from 'redux';
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux'
-import { player } from '../../reducers/playerInfo';
+import { connect } from 'react-redux';
 import { fetchPlayerStats, fetchPlayerProjections } from '../../apiCalls';
 import './Player.scss';
-import ice from '../../images/ice6.jpg'
+import ice from '../../images/ice6.jpg';
+import PropTypes from 'prop-types';
 
  export class Player extends Component {
-   constructor() {
-     super();
-     this.state = {
-       isFavorite: false
-     }
-   }
 
   componentDidMount = async () => {
     const { playerInfo, getPlayerStats, getPlayerProjections } = this.props;
     try {
       const stat = await fetchPlayerStats(playerInfo.id);
       const projections = await fetchPlayerProjections(playerInfo.id)
-      console.log(projections)
       getPlayerStats(this.organizeStats(stat))
       getPlayerProjections(this.organizeProjections(projections.stat))
       
     } catch (error) {
-      console.log('error')
+      return 'Error'
     }
   }
 
   organizeProjections = (projections) => {
-    console.log('projections! -->', projections)
     return {
       assists: projections.assists,
       games: projections.games,
@@ -63,20 +54,6 @@ import ice from '../../images/ice6.jpg'
     }
   }
 
-  toggleFave = () => {
-    console.log('in favorites')
-   if(this.isFavorite === true) {
-     this.setState({
-       isFavorite: false
-     })
-   } 
-   if(!this.isFavorite) {
-     this.setState({
-       isFavorite: true
-     })
-   }console.log(this.state)
-  }
-
   favoriteAPlayer = (e, id) => {
     e.preventDefault();
     const { favoritePlayer } = this.props;
@@ -88,11 +65,9 @@ import ice from '../../images/ice6.jpg'
 	return (
 		<section className='player'>
       <img class="player__img--ice" src={ice} alt="Ice"></img>
-      <div>
+      <div className="player__row">
         <h2 className="player__h2--name">{playerInfo.fullName}</h2>
-        <h2 onClick={this.toggleFave}>Favorite</h2>
         <ul>
-      {/* <li>{playerInfo.active}</li> */}
       <li>{playerInfo.birthCity}, {playerInfo.birthStateProvince}, {playerInfo.birthCountry}</li>
       <li>{playerInfo.captain}</li>
       <li className={`${this.isFavorite ? 'card__player--active' : 'h2__butt'}`}>Age: {playerInfo.currentAge}</li>
@@ -102,7 +77,7 @@ import ice from '../../images/ice6.jpg'
       <li>Left/Right - Handed: {playerInfo.shootsCatches}</li>
       </ul>
       </div>
-      <div>
+      <div className="player__row">
         <h4>Current Season Stats</h4>
         <ul>
         <li>Assists: {playerStats.assists}</li>
@@ -118,7 +93,7 @@ import ice from '../../images/ice6.jpg'
         <li>FaceOff Percentage: {playerStats.faceOffPct}</li>
       </ul>
       </div>
-      <div>
+      <div className="player__row">
           <h4>Projected Stats</h4>
         <ul>
       <li>Assists: {playerProjections.assists}</li>
@@ -134,14 +109,13 @@ import ice from '../../images/ice6.jpg'
       <li>FaceOff Percentage: {playerProjections.faceOffPct}</li>
       </ul>
       </div>
-      <button onClick={(e) => this.favoriteAPlayer(e, playerInfo)}>Favorite</button>
+      <button className="player__button--fave" onClick={(e) => this.favoriteAPlayer(e, playerInfo)}>Favorite</button>
 		</section>
 
 	)}
 }
 
 export const mapStateToProps = (state) => ({
-  // teams:state.teams,
   playerStats: state.playerStats,
   playerInfo:state.playerInfo,
   playerProjections:state.playerProjections
@@ -156,3 +130,12 @@ export const mapDispatchToProps = (dispatch) => (
 )
 
 export default connect(mapStateToProps, mapDispatchToProps)(Player);
+
+Player.propTypes = {
+  playerStats: PropTypes.object,
+  playerInfo: PropTypes.object,
+  playerProjections: PropTypes.object,
+  getPlayerStats: PropTypes.func,
+  getPlayerProjections: PropTypes.func,
+  favoritePlayer: PropTypes.func
+}

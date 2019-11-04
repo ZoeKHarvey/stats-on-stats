@@ -1,50 +1,33 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom';
-import TeamRoster from '../RosterCard/RosterCard'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import './TeamCard.scss';
-import { getTeams, isLoading, hasError, getRoster, getPlayer, getTeamSchedule, favoriteTeams } from '../../actions';
-import { fetchTeams, fetchRoster, fetchPlayer, fetchPlayerStats, fetchTeamSchedule, fetchPlayerProjections } from '../../apiCalls';
-import { Route } from 'react-router-dom';
+import { getTeamSchedule } from '../../actions';
+import { fetchRoster, fetchTeamSchedule } from '../../apiCalls';
+import PropTypes from 'prop-types';
 
 export class TeamCard extends Component {
-  constructor() {
-    super();
-    this.state = {
-      isFavorited: this.isFavorited
-    }
-  }
 
-  getSingleRoster = async(e, id) =>{
-    e.preventDefault()
+  getSingleRoster = async(id) =>{
     const { getRoster } = this.props;
     try {
       const roster = await fetchRoster(id);
       getRoster(roster)
     } catch(error) {
-      console.log('error')
-    }
-  }
+      return 'Roster Not Available'
+    };
+  };
 
-  getSingleTeamSchedule = async(e, id) => {
-    e.preventDefault();
+  getSingleTeamSchedule = async(id) => {
     const { getTeamSchedule } = this.props;
     try {
       const schedule = await fetchTeamSchedule(id);
-      console.log('schedule in function', schedule)
       getTeamSchedule(this.cleanUpSchedule(schedule))
     } catch(error) {
-      console.log('error')
-    }
-  }
-
-  favoriteTeam = (e, id) => {
-    console.log('prrproproprpssss', this.props)
-    e.preventDefault()
-    const { favoriteTeams } = this.props
-    favoriteTeams(id)
-  }
+      return 'No Games Today'
+    };
+  };
 
   cleanUpSchedule = (schedule) => {
     return {
@@ -58,56 +41,52 @@ export class TeamCard extends Component {
         homeWins: schedule.teams.home.leagueRecord.wins,
         homeLosses: schedule.teams.home.leagueRecord.losses,
         homeOT: schedule.teams.home.leagueRecord.ot
-    }
-  }
-}
+      }
+    };
+  };
 
   handleDetails = (e, id) => {
-    this.getSingleRoster(e, id)
-    this.getSingleTeamSchedule(e, id)
-    this.favoriteTeam(e, id)
-  }
+    this.getSingleRoster(id)
+    this.getSingleTeamSchedule(id)
+  };
 
   render() {
-    const {id, name, venue, firstYearOfPlay, division, conference, officialSiteUrl } = this.props
+    const {id, name, venue, firstYearOfPlay, division, conference, officialSiteUrl } = this.props;
       return (
-        
          <section className="team-card" > 
           <h2>{name}</h2>
+          <a href={officialSiteUrl}>Official Site</a>
           <h4>HomeTown: {venue.city}</h4>
           <h4>Founded: {firstYearOfPlay}</h4>
           <h4>Stadium: {venue.name}</h4>
           <h4>Division: {division.name}</h4>
           <h4>Conference: {conference.name}</h4>
-          {/* {shortName} */}
-          <a href={officialSiteUrl}>Official Site</a>
-          {/* {franchiseId} */}
-          {/* {active} */}
-          <Link to='/roster'>
-            <button onClick={(e) => this.handleDetails(e, id)}>Show Details</button>
+          <Link to='/roster' >
+            <button className="teamcard__button--details" onMouseEnter={(e) => this.handleDetails(e, id)}>Show Details</button>
           </Link>
-            {/* <h1>rosterrrr</h1> */}
-            <button onClick={this.favoriteTeams}>Favorite</button>
-
-          
         </section>
-      )
-}   }
+      );
+  }; 
+};
 
 
 export const mapStateToProps = (state) => ({
   teams: state.teams,
   errorMsg: state.errorMsg,
-})
+  teamSchedule: state.teamSchedule
+});
 
 export const mapDispatchToProps = (dispatch) => (
   bindActionCreators({
-    // getTeams,
-    // hasError,
-    // isLoading,
-    getRoster,
     getTeamSchedule,
-    favoriteTeams
   }, dispatch)
-)
+);
+
 export default connect(mapStateToProps, mapDispatchToProps)(TeamCard);
+
+TeamCard.propTypes = {
+  teams: PropTypes.array,
+  errorMsg: PropTypes.string,
+  teamSchedule: PropTypes.object,
+  getTeamSchedule: PropTypes.func
+};

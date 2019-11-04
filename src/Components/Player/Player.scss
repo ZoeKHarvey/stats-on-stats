@@ -3,8 +3,7 @@
   display: flex;
   justify-content: space-evenly;
   height: 87vh;
-  
-
+  position: relative;
 }
 
 ul {
@@ -13,6 +12,8 @@ ul {
 
 .player__h2--name {
   display: block;
+  font-size: 2em;
+  margin-top: 0;
 }
 
 .player__img--ice {
@@ -24,4 +25,24 @@ ul {
 
 .card__player--active {
   font-size: 3em;
+}
+
+.player__button--fave {
+  width: 5%;
+  height: 10%;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.player__row {
+  padding-top: 20%;
+}
+
+.player__button--fave {
+  margin: 2% 2%;
+  border-radius: 2em;
+  &:hover {
+   transform: scale(1.5) 
+  }
 }

@@ -55,17 +55,6 @@ describe('actions', () => {
     const result = actions.getPlayerProjections(player);
     expect(result).toEqual(expectedAction)
   });
-  
-  it('should have a type of FAVORITE_TEAMS', () => {
-    const newTeam = [{}, {}];
-    const expectedAction = {
-      type: 'GET_FAVORITE_TEAMS',
-      newTeam
-    };
-    const result = actions.favoriteTeams(newTeam);
-    expect(result).toEqual(expectedAction)
-  });
-})
 
   it('should have a type of FAVORITE_PLAYER', () => {
     const newPlayer = [{}, {}, {}];
@@ -97,4 +86,5 @@ describe('actions', () => {
       };
       const result = actions.hasError(errorMsg);
       expect(result).toEqual(expectedAction)
-    });
+    })
+  })

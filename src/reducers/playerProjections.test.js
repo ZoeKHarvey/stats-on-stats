@@ -13,7 +13,7 @@ describe('playerInfo', () => {
     const initialState = {};
     const action = {
       type: 'GET_PLAYER_PROJECTIONS',
-      playerProjections: {name: 'dog', age: 98}
+      player: {name: 'dog', age: 98}
     };
 
     const result = {name: 'dog', age: 98};

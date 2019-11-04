@@ -13,7 +13,7 @@ describe('teamSchedule', () => {
     const initialState = {};
     const action = {
       type: 'GET_TEAM_SCHEDULE',
-      teamSchedule: {name: 'dog', age: 98}
+      schedule: {name: 'dog', age: 98}
     };
 
     const result = {name: 'dog', age: 98};
@@ -25,7 +25,7 @@ describe('teamSchedule', () => {
     const initialState = [];
     const action = {
       type: 'WHAT',
-      teamSchedule: [{}, {}]
+      schedule: [{}, {}]
     };
     expect(teamSchedule(initialState, action)).toEqual(initialState)
   })
