@@ -82,10 +82,20 @@ describe('fetchRoster', () => {
 describe('fetchPlayer', () => {
   let url;
   let id;
-  const mockResponse = {name: 'name', 
-                        jerseyNumber: 3,
-                        position: 'C',
-                        homeTown: ''}
+  const mockResponse = [
+    {id:8475191,
+    fullName:"Reilly Smith",
+    active:true,
+    captain:false,
+    height:"6'1",
+    weight:183,
+    birthCity:"Mimico",
+    birthStateProvince:"ON",
+    birthCountry:"CAN",
+    currentAge:28,
+    rosterStatus:"Y",
+    shootsCatches:"L"}
+    ]
 
   it('should call fetchPlayer with the correct url', () => {
     id = 8476941;
@@ -113,7 +123,15 @@ describe('fetchPlayerStats', () => {
   let url;
   let id;
   let year;
-  const mockResponse = [{}, {}, {}]
+  const mockResponse = [
+    {assists: 1,
+    goals: 2,
+    gamesPlayed: 1,
+    hits: 3,
+    pim: 6,
+    totalPoints: 3,
+    shootingPercentage: 4}
+  ]
 
   it('should call fetchPlayerStats with the correct url', () => {
     id = 8476941;
