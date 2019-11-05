@@ -15,5 +15,5 @@ describe('NavLogos', () => {
 
   it('should match the snapshot', () => {
     expect(wrapper).toMatchSnapshot();
-  })
+  });
 })
