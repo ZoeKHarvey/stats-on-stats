@@ -5,8 +5,8 @@ import './RosterContainer.scss';
 import PropTypes from 'prop-types';
 
 export const RosterContainer = ({roster, getSinglePlayer, teamSchedule}) => {
-  const singleRoster = roster.map((roster) => {
-    return <RosterCard {...roster}
+  const singleRoster = roster.map((roster, index) => {
+    return <RosterCard key={index} {...roster}
                         getSinglePlayer = { getSinglePlayer } 
                         teamSchedule = { teamSchedule }
                         />
@@ -57,6 +57,6 @@ export default connect(mapStateToProps)(RosterContainer);
 
 RosterContainer.propTypes = {
   teams: PropTypes.array,
-  roster: PropTypes.object,
+  roster: PropTypes.array,
   teamSchedule: PropTypes.object
 }

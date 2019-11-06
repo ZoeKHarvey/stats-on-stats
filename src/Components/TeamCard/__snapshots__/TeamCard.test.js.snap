@@ -1,3 +1,41 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TeamCard should match the snapshot 1`] = `ShallowWrapper {}`;
+exports[`TeamCard should match the snapshot 1`] = `
+<section
+  className="team-card"
+>
+  <h2 />
+  <a>
+    Official Site
+  </a>
+  <h4>
+    HomeTown: 
+    Philly
+  </h4>
+  <h4>
+    Founded: 
+  </h4>
+  <h4>
+    Stadium: 
+    Wells Fargo
+  </h4>
+  <h4>
+    Division: 
+    Eastern
+  </h4>
+  <h4>
+    Conference: 
+    Metropolitan
+  </h4>
+  <Link
+    to="/roster"
+  >
+    <button
+      className="teamcard__button--details"
+      onMouseEnter={[Function]}
+    >
+      Show Details
+    </button>
+  </Link>
+</section>
+`;

@@ -1,3 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TeamContainer should match the snapshot 1`] = `ShallowWrapper {}`;
+exports[`TeamContainer should match the snapshot 1`] = `
+<section
+  className="section-teamcontainer"
+>
+  <Connect(TeamCard)
+    key="0"
+    name="Veet"
+  />
+</section>
+`;

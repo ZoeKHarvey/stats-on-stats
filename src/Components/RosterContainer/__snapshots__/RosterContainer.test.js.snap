@@ -1,3 +1,75 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RosterContainer should match the snapshot 1`] = `ShallowWrapper {}`;
+exports[`RosterContainer should match the snapshot 1`] = `
+<section
+  className="section-rostercontainer"
+>
+  <div
+    className="roster__container--game"
+  >
+    <h2
+      className="roster--h2--game"
+    >
+      Today's Game
+    </h2>
+    <div
+      className="roster__div--schedule"
+    >
+      <div
+        className="roster__div--home"
+      >
+        <h3>
+          Home Team
+        </h3>
+        <h3
+          className="roster__h3--home"
+        />
+        <h4>
+          Wins: undefined
+        </h4>
+        <h4>
+          Losses: undefined
+        </h4>
+        <h4>
+          OTL: undefined
+        </h4>
+      </div>
+      <div
+        className="roster__div--away"
+      >
+        <h3>
+          Away Team
+        </h3>
+        <h3
+          className="roster__h3--away"
+        />
+        <h4>
+          Wins: undefined
+        </h4>
+        <h4>
+          Losses: undefined
+        </h4>
+        <h4>
+          OTL: undefined
+        </h4>
+      </div>
+    </div>
+    <h1
+      className="roster__h1--roster"
+    >
+      Roster
+    </h1>
+  </div>
+  <Connect(RosterCard)
+    jerseyNumber={1}
+    key="0"
+    name="Veet"
+    teamSchedule={
+      Object {
+        "away": "Cattans",
+        "home": "Doggos",
+      }
+    }
+  />
+</section>
+`;

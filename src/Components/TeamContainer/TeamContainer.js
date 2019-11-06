@@ -9,8 +9,8 @@ export const TeamContainer = ({teams, getSingleRoster, getSingleTeamSchedule, ha
    return a.division.id - b.division.id
   });
 
-  const singleTeams = alph.map((al) => {
-    return <TeamCard key={al.id}
+  const singleTeams = alph.map((al, index) => {
+    return <TeamCard key={index}
                         {...al}
                         getSingleRoster={getSingleRoster} 
                         getSingleTeamSchedule={getSingleTeamSchedule}

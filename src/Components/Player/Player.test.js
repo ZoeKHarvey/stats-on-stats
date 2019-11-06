@@ -30,6 +30,65 @@ describe('Player', () => {
   it('should match the snapshot', () => {
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('should call favoriteAPlayer on click', () => {
+    wrapper.instance().favoriteAPlayer = jest.fn()
+
+    wrapper.find('button').simulate('click')
+    
+    expect(wrapper.instance().favoriteAPlayer).toHaveBeenCalled()
+  })
+
+  it('should organize stats', () => {
+    const projections = {
+      assists: 1,
+      games: 2,
+      goals: 4,
+      hits: 5,
+      pim: 6,
+      plusMinus: 2,
+      points: 7,
+      powerPlayPoints: 4,
+      shotPct: .3,
+      shots: 4,
+      faceOffPct: 5
+    }
+
+    const expected = {
+    assists: projections.assists,
+    games: projections.games,
+    goals: projections.goals,
+    hits: projections.hits,
+    pim: projections.pim,
+    plusMinus: projections.plusMinus,
+    points: projections.points,
+    powerPlayPoints: projections.powerPlayPoints,
+    shotPct: projections.shotPct,
+    shots: projections.shots,
+    faceOffPct: projections.faceOffPct
+  }
+
+    const disorganizedData = {
+      hometown: 'somewhere',
+      age: 30,
+      awayGames: 4,
+      homeGames: 5,
+      assists: projections.assists,
+      games: projections.games,
+      goals: projections.goals,
+      hits: projections.hits,
+      pim: projections.pim,
+      plusMinus: projections.plusMinus,
+      points: projections.points,
+      powerPlayPoints: projections.powerPlayPoints,
+      shotPct: projections.shotPct,
+      shots: projections.shots,
+      faceOffPct: projections.faceOffPct
+    }
+
+    expect(wrapper.instance().organizeProjections(disorganizedData)).toEqual(expected)
+
+  })
 });
 
 describe('mockStateToProps', () => {

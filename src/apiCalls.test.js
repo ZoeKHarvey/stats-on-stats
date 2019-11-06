@@ -8,18 +8,7 @@ import {
 } from './apiCalls';
 
 describe('getTeams', () => {
-  const mockResponse = [{
-  id: 20,
-  name:"Calgary Flames",
-  link:"/api/v1/teams/20",
-  abbreviation:"CGY",
-  teamName:"Flames",
-  locationName:"Calgary",
-  firstYearOfPlay:"1980",
-  shortName:"Calgary",
-  officialSiteUrl:"http://www.calgaryflames.com/",
-  franchiseId:21,
-  active:true }]
+  const mockResponse = {teams: [{name:'flyers'}, {name: 'blues'}, {name:'preds'}]}
 
   const url = 'https://statsapi.web.nhl.com/api/v1/teams?expand=team.roster'
 
@@ -37,9 +26,18 @@ describe('getTeams', () => {
   });
 
   it('should return an array of players', () => {
-    expect(fetchTeams()).resolves.toEqual(mockResponse)
+    expect(fetchTeams()).resolves.toEqual(mockResponse.teams)
   });
 });
+
+it('should an error if response is not ok', () => {
+  window.fetch = jest.fn().mockImplementation(() => {
+    return Promise.resolve({ 
+      ok: false
+    })
+  })
+  expect(fetchTeams()).rejects.toEqual(Error('There was an error getting the teams.'))
+})
 
 it('should return an error if promise rejects', () => {
   window.fetch = jest.fn().mockImplementation(() => {
@@ -52,10 +50,7 @@ it('should return an error if promise rejects', () => {
 describe('fetchRoster', () => {
   let url;
   let id;
-  const mockResponse = [
-    {name: 'name1', jerseyNumber: 2, position: 'C'}, 
-    {name: 'name2', jerseyNumber: 3, position: 'D'}, 
-    {name: 'name3', jerseyNumber: 4, position: 'D'}];
+  const mockResponse = {teams: [{name: 'me', roster: {roster: 'roster'}}, {name: 'dog', roster: {roster: 'roster'}}]}
   
   it('should call fetch with the correct url', () => {
     id = 8476941;
@@ -82,20 +77,7 @@ describe('fetchRoster', () => {
 describe('fetchPlayer', () => {
   let url;
   let id;
-  const mockResponse = [
-    {id:8475191,
-    fullName:"Reilly Smith",
-    active:true,
-    captain:false,
-    height:"6'1",
-    weight:183,
-    birthCity:"Mimico",
-    birthStateProvince:"ON",
-    birthCountry:"CAN",
-    currentAge:28,
-    rosterStatus:"Y",
-    shootsCatches:"L"}
-    ]
+  const mockResponse = {people: [{id: 1}, {id: 2}, {id:8476941}]}
 
   it('should call fetchPlayer with the correct url', () => {
     id = 8476941;
@@ -123,16 +105,11 @@ describe('fetchPlayerStats', () => {
   let url;
   let id;
   let year;
-  const mockResponse = [
-    {assists: 1,
-    goals: 2,
-    gamesPlayed: 1,
-    hits: 3,
-    pim: 6,
-    totalPoints: 3,
-    shootingPercentage: 4}
-  ]
 
+  const mockResponse = {
+      stats: [{splits: [{stat: 3}]}]
+    }
+  
   it('should call fetchPlayerStats with the correct url', () => {
     id = 8476941;
     year = 20192020;
@@ -155,9 +132,16 @@ describe('fetchPlayerStats', () => {
     expect(fetchPlayerStats()).rejects.toEqual(Error('fetch failed'));
   });
 
+
 it('should call fetchTeamSchedule with the correct url', () => {
   id = 8476941;
   url = `https://statsapi.web.nhl.com/api/v1/schedule?teamId=${id}`;
+
+  const mockResponse = {
+    dates: [
+      { games: ['bob']}
+    ]
+  }
   window.fetch = jest.fn().mockImplementation(() => {
     return Promise.resolve({
       ok: true,

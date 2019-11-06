@@ -1,3 +1,139 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Player should match the snapshot 1`] = `ShallowWrapper {}`;
+exports[`Player should match the snapshot 1`] = `
+<section
+  className="player"
+>
+  <img
+    alt="Ice"
+    class="player__img--ice"
+    src="ice6.jpg"
+  />
+  <div
+    className="player__row"
+  >
+    <h2
+      className="player__h2--name"
+    >
+      Vito Burrito
+    </h2>
+    <ul>
+      <li>
+        , 
+        , 
+      </li>
+      <li />
+      <li
+        className="h2__butt"
+      >
+        Age: 
+      </li>
+      <li>
+        Height: 
+      </li>
+      <li>
+        Weight: 
+      </li>
+      <li>
+        Status: 
+      </li>
+      <li>
+        Left/Right - Handed: 
+      </li>
+    </ul>
+  </div>
+  <div
+    className="player__row"
+  >
+    <h4>
+      Current Season Stats
+    </h4>
+    <ul>
+      <li>
+        Assists: 
+        100
+      </li>
+      <li>
+        Games Played: 
+      </li>
+      <li>
+        Goals: 
+        90
+      </li>
+      <li>
+        Hits: 
+      </li>
+      <li>
+        Penalties In Minutes: 
+      </li>
+      <li>
+        Plus/Minus: 
+      </li>
+      <li>
+        Total Points: 
+      </li>
+      <li>
+        Powerplay Points:
+      </li>
+      <li>
+        Shooting Percentage:
+      </li>
+      <li>
+        Shots Taken: 
+      </li>
+      <li>
+        FaceOff Percentage: 
+      </li>
+    </ul>
+  </div>
+  <div
+    className="player__row"
+  >
+    <h4>
+      Projected Stats
+    </h4>
+    <ul>
+      <li>
+        Assists: 
+        200
+      </li>
+      <li>
+        Games Played: 
+      </li>
+      <li>
+        Goals: 
+      </li>
+      <li>
+        Hits: 
+      </li>
+      <li>
+        Penalties In Minutes: 
+      </li>
+      <li>
+        Plus/Minus: 
+      </li>
+      <li>
+        Total Points: 
+      </li>
+      <li>
+        Powerplay Points: 
+      </li>
+      <li>
+        Shot Percentage: 
+      </li>
+      <li>
+        Shots Taken: 
+      </li>
+      <li>
+        FaceOff Percentage: 
+      </li>
+    </ul>
+  </div>
+  <button
+    className="player__button--fave"
+    onClick={[Function]}
+  >
+    Favorite
+  </button>
+</section>
+`;

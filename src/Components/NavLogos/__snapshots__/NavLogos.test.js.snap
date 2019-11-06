@@ -1,3 +1,189 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`NavLogos should match the snapshot 1`] = `ShallowWrapper {}`;
+exports[`NavLogos should match the snapshot 1`] = `
+<nav>
+  <Link
+    to="/roster"
+  >
+    <div
+      className="nav__div"
+    >
+      <div
+        className="nav__original-six nav"
+      >
+        <img
+          alt="flyers logo link to team page"
+          className="nav__img--logo"
+          src="bruins.png"
+        />
+        <img
+          alt="flyers logo link to team page"
+          className="nav__img--logo"
+          src="rangers.png"
+        />
+        <img
+          alt="flyers logo link to team page"
+          className="nav__img--logo"
+          src="canadiens.png"
+        />
+        <img
+          alt="flyers logo link to team page"
+          className="nav__img--logo"
+          src="redwings.png"
+        />
+        <img
+          alt="flyers logo link to team page"
+          className="nav__img--logo"
+          src="leafs.png"
+        />
+        <img
+          alt="flyers logo link to team page"
+          className="nav__img--logo"
+          src="blackhawks.png"
+        />
+      </div>
+      <div
+        className="nav__second nav"
+      >
+        <img
+          alt="flyers logo link to team page"
+          className="nav__img--logo"
+          src="flyers.png"
+        />
+        <img
+          alt="blues logo link to team page"
+          className="nav__img--logo"
+          src="blues.png"
+        />
+        <img
+          alt="flyers logo link to team page"
+          className="nav__img--logo"
+          src="pens.png"
+        />
+        <img
+          alt="flyers logo link to team page"
+          className="nav__img--logo"
+          src="kings.png"
+        />
+        <img
+          alt="flyers logo link to team page"
+          className="nav__img--logo"
+          src="sabres.png"
+        />
+        <img
+          alt="flyers logo link to team page"
+          className="nav__img--logo"
+          src="canucks.png"
+        />
+      </div>
+      <div
+        className="nav__third nav"
+      >
+        <img
+          alt="flyers logo link to team page"
+          className="nav__img--logo"
+          src="islanders.png"
+        />
+        <img
+          alt="flyers logo link to team page"
+          className="nav__img--logo"
+          src="capitals.png"
+        />
+        <img
+          alt="flyers logo link to team page"
+          className="nav__img--logo"
+          src="oilers.png"
+        />
+        <img
+          alt="flyers logo link to team page"
+          className="nav__img--logo"
+          src="sharks.png"
+        />
+        <img
+          alt="flyers logo link to team page"
+          className="nav__img--logo"
+          src="senators.png"
+        />
+        <img
+          alt="flyers logo link to team page"
+          className="nav__img--logo"
+          src="lightning.png"
+        />
+      </div>
+      <div
+        className="nav__fourth nav"
+      >
+        <img
+          alt="flyers logo link to team page"
+          className="nav__img--logo"
+          src="panthers.png"
+        />
+        <img
+          alt="flyers logo link to team page"
+          className="nav__img--logo"
+          src="ducks.png"
+        />
+        <img
+          alt="flyers logo link to team page"
+          className="nav__img--logo"
+          src="devils.png"
+        />
+        <img
+          alt="flyers logo link to team page"
+          className="nav__img--logo"
+          src="flames.png"
+        />
+        <img
+          alt="flyers logo link to team page"
+          className="nav__img--logo"
+          src="avalanche.png"
+        />
+        <img
+          alt="flyers logo link to team page"
+          className="nav__img--logo"
+          src="stars.png"
+        />
+      </div>
+      <div
+        className="nav__fifth nav"
+      >
+        <img
+          alt="flyers logo link to team page"
+          className="nav__img--logo"
+          src="coyotes.png"
+        />
+        <img
+          alt="flyers logo link to team page"
+          className="nav__img--logo"
+          src="wild.png"
+        />
+        <img
+          alt="flyers logo link to team page"
+          className="nav__img--logo"
+          src="predators.png"
+        />
+        <img
+          alt="flyers logo link to team page"
+          className="nav__img--logo"
+          src="bluejackets.png"
+        />
+        <img
+          alt="flyers logo link to team page"
+          className="nav__img--logo"
+          src="jets.png"
+        />
+        <img
+          alt="flyers logo link to team page"
+          className="nav__img--logo"
+          src="hurricanes.png"
+        />
+        <img
+          alt="flyers logo link to team page"
+          className="nav__img--logo"
+          src="golden-knights.png"
+        />
+      </div>
+    </div>
+  </Link>
+</nav>
+`;

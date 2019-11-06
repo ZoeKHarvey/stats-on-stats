@@ -13,15 +13,14 @@ import Footer from '../Footer/Footer';
 import FavoritePlayersContainer from '../FavoritePlayersContainer/FavoritePlayersContainer';
 import PropTypes from 'prop-types';
 
-
 export class App extends Component {
   componentDidMount = async () => {
     const { getTeams } = this.props;
     try {
       const teams = await fetchTeams();
       getTeams(teams);
-    } catch (error) {
-      return 'Error'
+    } catch ({ message }) {
+      console.log(message)
     }
   }
 
@@ -30,11 +29,10 @@ export class App extends Component {
     try {
       const roster = await fetchRoster(id);
       getRoster(roster)
-    } catch(error) {
-      return 'Error'
+    } catch({message}) {
+      console.log(message)
     }
   }
-
 
   getSinglePlayer = async(e, id) => {
     this.getSinglePlayerStats(e, id)
@@ -42,8 +40,8 @@ export class App extends Component {
     try {
       const player = await fetchPlayer(id);
       getPlayer(this.cleanUpPlayer(player))
-    } catch(error) {
-      return 'Error'
+    } catch({message}) {
+      console.log(message)
     }
   }
 
@@ -52,8 +50,8 @@ export class App extends Component {
     try {
       const player = await fetchPlayerStats(id);
       getPlayerStats(this.cleanUpPlayerStats(player))
-    } catch(error) {
-      return 'Error'
+    } catch({message}) {
+      console.log(message)
     }
   }
 
@@ -71,7 +69,6 @@ export class App extends Component {
       currentAge: player.currentAge,
       rosterStatus: player.rosterStatus,
       shootsCatches: player.shootsCatches,
-      
     }
   }
 

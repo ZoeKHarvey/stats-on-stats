@@ -1,3 +1,36 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Footer should match the snapshot 1`] = `ShallowWrapper {}`;
+exports[`Footer should match the snapshot 1`] = `
+<section
+  className="section-footer"
+>
+  <div
+    className="footer__div--links"
+  >
+    <Link
+      className="footer__a--link"
+      to="/"
+    >
+      <h3>
+        Home
+      </h3>
+    </Link>
+    <Link
+      className="footer__a--link"
+      to="/teams"
+    >
+      <h3>
+        All Teams
+      </h3>
+    </Link>
+    <Link
+      className="footer__a--link"
+      to="/favorites"
+    >
+      <h3>
+        Favorite Players
+      </h3>
+    </Link>
+  </div>
+</section>
+`;
