@@ -26,9 +26,18 @@ beforeEach(() => {
             conference={conference}/>
   );
 });
+
   it('should match the snapshot', () => {
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('should call handleDetails on mouseEnter', () => {
+    wrapper.instance().handleDetails = jest.fn()
+
+    wrapper.find('button').simulate('mouseenter')
+    
+    expect(wrapper.instance().handleDetails).toHaveBeenCalled()
+  })
 });
 
 describe('mockStateToProps', () => {
@@ -69,5 +78,4 @@ describe('mockStateToProps', () => {
 
     expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch)
   });
-
-})
+});

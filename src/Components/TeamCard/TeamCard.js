@@ -69,7 +69,6 @@ export class TeamCard extends Component {
   }; 
 };
 
-
 export const mapStateToProps = (state) => ({
   teams: state.teams,
   errorMsg: state.errorMsg,

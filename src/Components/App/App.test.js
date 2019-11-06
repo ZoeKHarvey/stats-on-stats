@@ -1,7 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme'
 import { App, mapStateToProps, mapDispatchToProps } from './App';
-import { getTeams, getRoster, getPlayer, getTeamSchedule } from '../../actions/index'
+import { getTeams, getRoster, getPlayer, getTeamSchedule } from '../../actions/index';
+import {fetchTeams} from '../../apiCalls'
 
 jest.mock('../../apiCalls');
 
@@ -14,6 +15,11 @@ describe('App', () => {
 
   it('should match the snapshot', () => {
     expect(wrapper).toMatchSnapshot();
+  });
+
+  it('should get data for teams after mounting', () => {
+    shallow(<App />);
+    expect(fetchTeams).toHaveBeenCalled()
   });
 });
 
