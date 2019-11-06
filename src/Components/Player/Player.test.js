@@ -30,6 +30,14 @@ describe('Player', () => {
   it('should match the snapshot', () => {
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('should call favoriteAPlayer on click', () => {
+    wrapper.instance().favoriteAPlayer = jest.fn()
+
+    wrapper.find('button').simulate('click')
+    
+    expect(wrapper.instance().favoriteAPlayer).toHaveBeenCalled()
+  })
 });
 
 describe('mockStateToProps', () => {

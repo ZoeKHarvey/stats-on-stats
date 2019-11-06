@@ -13,7 +13,6 @@ import Footer from '../Footer/Footer';
 import FavoritePlayersContainer from '../FavoritePlayersContainer/FavoritePlayersContainer';
 import PropTypes from 'prop-types';
 
-
 export class App extends Component {
   componentDidMount = async () => {
     const { getTeams } = this.props;
@@ -34,7 +33,6 @@ export class App extends Component {
       return 'Error'
     }
   }
-
 
   getSinglePlayer = async(e, id) => {
     this.getSinglePlayerStats(e, id)
