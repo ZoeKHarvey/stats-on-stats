@@ -17,8 +17,8 @@ import PropTypes from 'prop-types';
       getPlayerStats(this.organizeStats(stat))
       getPlayerProjections(this.organizeProjections(projections.stat))
       
-    } catch (error) {
-      return 'Error'
+    } catch ({message}) {
+      throw new Error('Error:', message)
     }
   }
 

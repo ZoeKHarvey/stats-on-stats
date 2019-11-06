@@ -19,8 +19,8 @@ export class App extends Component {
     try {
       const teams = await fetchTeams();
       getTeams(teams);
-    } catch (error) {
-      return 'Error'
+    } catch ({ message }) {
+      console.log(message)
     }
   }
 
@@ -29,8 +29,8 @@ export class App extends Component {
     try {
       const roster = await fetchRoster(id);
       getRoster(roster)
-    } catch(error) {
-      return 'Error'
+    } catch({message}) {
+      console.log(message)
     }
   }
 
@@ -40,8 +40,8 @@ export class App extends Component {
     try {
       const player = await fetchPlayer(id);
       getPlayer(this.cleanUpPlayer(player))
-    } catch(error) {
-      return 'Error'
+    } catch({message}) {
+      console.log(message)
     }
   }
 
@@ -50,8 +50,8 @@ export class App extends Component {
     try {
       const player = await fetchPlayerStats(id);
       getPlayerStats(this.cleanUpPlayerStats(player))
-    } catch(error) {
-      return 'Error'
+    } catch({message}) {
+      console.log(message)
     }
   }
 
@@ -69,7 +69,6 @@ export class App extends Component {
       currentAge: player.currentAge,
       rosterStatus: player.rosterStatus,
       shootsCatches: player.shootsCatches,
-      
     }
   }
 

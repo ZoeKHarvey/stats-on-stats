@@ -57,7 +57,7 @@ describe('mockStateToProps', () => {
 
   const mockDispatch = jest.fn();
 
-  it('should call dispatch with a getRoster action when handleDetails is clicked', () => {
+  it.skip('should call dispatch with a getRoster action when handleDetails is clicked', () => {
     let roster = [{}, {}, {}]
 
     const actionToDispatch = getRoster(roster);
