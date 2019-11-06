@@ -57,6 +57,6 @@ export default connect(mapStateToProps)(RosterContainer);
 
 RosterContainer.propTypes = {
   teams: PropTypes.array,
-  roster: PropTypes.object,
+  roster: PropTypes.array,
   teamSchedule: PropTypes.object
 }

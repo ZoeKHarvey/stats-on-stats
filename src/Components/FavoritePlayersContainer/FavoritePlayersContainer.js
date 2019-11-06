@@ -5,8 +5,8 @@ import './FavoritePlayersContainer.scss';
 import PropTypes from 'prop-types'
 
 export const FavoritePlayersContainer = ({teamSchedule, getSinglePlayer, favoritePlayers}) => {
-  const player = favoritePlayers.map((player) => {
-    return <FavoriteCard key={Date.now()}
+  const player = favoritePlayers.map((player, index) => {
+    return <FavoriteCard key={index}
                         {...player}
                         getSinglePlayer = { getSinglePlayer } 
                         teamSchedule = { teamSchedule }
